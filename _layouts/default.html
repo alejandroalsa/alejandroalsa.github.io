@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+
+{% seo %}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+    {% include head-custom.html %}
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  </head>
+  <body>
+    <header class="page-header" role="banner">
+      <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
+      <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
+      {% if site.github.is_project_page %}
+      {% endif %}
+      {% if site.show_downloads %}
+        <a href="https://llalex-esp.github.io/news" class="btn">Noticias</a>
+        <a href="https://llalex-esp.github.io/html" class="btn">HTML</a>
+        <a href="https://llalex-esp.github.io/css" class="btn">CSS</a>
+        <a href="https://llalex-esp.github.io/js" class="btn">JS</a>
+        <a href="https://llalex-esp.github.io/so" class="btn">Sistemas Operativos</a>
+        <a href="https://llalex-esp.github.io/op" class="btn">Optimización</a>
+        <a href="https://llalex-esp.github.io/redes" class="btn">Redes</a>
+      {% endif %}
+    </header>
+    <main id="content" class="main-content" role="main">
+      {{ content }}
+      <footer class="site-footer">
+        {% if site.github.is_project_page %}
+          <span class="site-footer-owner"><a href="{{ site.github.repository_url }}">{{ site.github.repository_name }}</a> is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a>.</span>
+        {% endif %}
+        <span class="site-footer-credits">© 2022 Alejandro Alfaro Sánchez. Todos los derechos reservados.</span>
+        <a href="https://www.instagram.com/alex._._.esp/"><ion-icon name="logo-instagram"></ion-icon></a>
+        <a href="https://github.com/LLALEX-ESP"><ion-icon name="logo-github"></ion-icon></a>
+        <a href="https://www.linkedin.com/in/alejandro-alfaro-sanchez/"><ion-icon name="logo-linkedin"></ion-icon></a>
+        <a href="https://twitter.com/LLALEX_ES"><ion-icon name="logo-twitter"></ion-icon></a>
+      </footer>
+    </main>
+  </body>
+</html>
