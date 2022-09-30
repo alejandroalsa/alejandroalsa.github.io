@@ -1,3 +1,7 @@
+# ΛLΣJΛПDЯӨΛLSΛ
+
+En este blog publicaré tutoriales, información, noticias y curiosidades acerca de:
+
 # Última publicación
 >  Sept 04, 2022 
 
