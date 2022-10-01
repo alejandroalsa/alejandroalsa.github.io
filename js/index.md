@@ -1,1 +1,6 @@
+---
+page.title: "JavaScript"
+---
+
+
 # JavaScript
