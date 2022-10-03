@@ -8,7 +8,7 @@ En este curso aprenderemos HTML, el lenguaje de marcado de hipertexto más impor
 
 ## Temas
 
-*   [1. HTML Introducción](/html/Introducción). 
+*   [1. HTML Introducción](/html/Introduccion). 
 *   [2. HTML Básico](/html/HTML-Basico). 
 *   [3. HTML Elementos](/html/HTML-Elementos). 
 *   [4. HTML Atributos](/html/HTML-Atributos). 
