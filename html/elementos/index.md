@@ -72,3 +72,6 @@ Las etiquetas de HTML no distingue entre mayúsculas y minúsculas. `<P>` `<p>`
 
 Al no distinguir entre mayúsculas y minúsculas dará igual como las pongamos, pero se recomienda poner las etiquetas en minúsculas por buenas prácticas, esto facilitara la lectura de código para otros programadores/desarrolladores.
 
+<a href="https://llalex-esp.github.io/html/basico">Tema Anterior (HTML Básico)</a>
+<a href="https://llalex-esp.github.io/html/atributos">Siguiente Tema (HTML Atributos)</a>
+
