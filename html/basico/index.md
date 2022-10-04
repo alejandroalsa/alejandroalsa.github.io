@@ -38,7 +38,7 @@ Los Párrafos en HTML se definen con la etiqueta `<p>`
 Los enlaces en HTML se definen con la etiqueta `<a>`
 
 ```html
-<a href="https://llalex-esp.github.io/html/HTML-Basico">
+<a href="https://llalex-esp.github.io/html/basico">
 ```
 
 El destino del enlace se define con el atributo `href`.
