@@ -59,4 +59,5 @@ Las imágenes en HTML se definen con la etiqueta `<img>`
 El archivo de origen (`<src>` este puede ser un enlace de otra web o estar en un directorio de la web), el texto alternativo (`alt`), y por último el ancho y el alto (`width`, `height`).
 
 <a href="https://llalex-esp.github.io/html/introduccion">Tema Anterior (Introducción)</a>
+
 <a href="https://llalex-esp.github.io/html/elementos">Siguiente Tema (HTML Elementos)</a>
