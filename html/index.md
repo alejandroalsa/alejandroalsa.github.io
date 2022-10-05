@@ -12,7 +12,7 @@ En este curso aprenderemos HTML, el lenguaje de marcado de hipertexto más impor
 *   [2. HTML Básico](/html/basico). 
 *   [3. HTML Elementos](/html/elementos). 
 *   [4. HTML Atributos](/html/atributos). 
-*   [5. HTML Encabezados](/html/encabezados). 
+*   [5. HTML Encabezados](/html/encabezado). 
 *   [6. HTML Párrafos](/html/parrafos). 
 *   [7. HTML Formato](/html/formato). 
 *   [8. HTML Cotizaciones](/html/cotizaciones). 
