@@ -107,4 +107,4 @@ El valor del atributo de título se mostrará como información sobre herramient
 
 <a  href="https://llalex-esp.github.io/html/elementos">Tema Anterior (HTML Elementos)</a>
 
-<a  href="https://llalex-esp.github.io/html/encabezados">Siguiente Tema (HTML Encabezados)</a>
+<a  href="https://llalex-esp.github.io/html/encabezado">Siguiente Tema (HTML Encabezados)</a>
