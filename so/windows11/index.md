@@ -6,8 +6,8 @@ page.title: "Windows 11"
 
 Windows 11
 
-*   [Configuración](/windows11/configuracion).
-*   [Instalación](/windows11/instalacion).
-*   [Personalización](/windows11/personalizacion).
-*   [Optimización](/windows11/optimizacion).
+*   [Configuración](/so/windows11/configuracion).
+*   [Instalación](/so/windows11/instalacion).
+*   [Personalización](/so/windows11/personalizacion).
+*   [Optimización](/so/windows11/optimizacion).
 

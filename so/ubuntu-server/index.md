@@ -6,5 +6,5 @@ page.title: "Ubuntu Server 22"
 
 Ubuntu Server 22
 
-*   [Configuración](/ubuntu-server/configuracion).
-*   [Instalación](/ubuntu-server/instalacion).
+*   [Configuración](/so/ubuntu-server/configuracion).
+*   [Instalación](/so/ubuntu-server/instalacion).

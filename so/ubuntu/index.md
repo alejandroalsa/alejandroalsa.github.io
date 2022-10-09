@@ -6,6 +6,6 @@ page.title: "Ubuntu 22"
 
 Ubuntu 22
 
-*   [Configuración](/ubuntu/configuracion).
-*   [Instalación](/ubuntu/instalacion).
-*   [Personalización](/ubuntu/[personalizacion]).
+*   [Configuración](/so/ubuntu/configuracion).
+*   [Instalación](/so/ubuntu/instalacion).
+*   [Personalización](/so/ubuntu/[personalizacion]).
