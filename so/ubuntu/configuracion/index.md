@@ -24,21 +24,14 @@ El software que se instalara es:
 ```bash
 
 clear
-
 set -x
 
 apt-get update -y
 apt-get upgrade -y
 
-apt-get install gnome-tweaks -y
-apt-get install chrome-gnome-shell -y
-apt-get install gnome-shell-extensions -y
-apt-get install lm-sensors -y
-apt-get install filezilla -y
-apt-get install virtualbox -y
-apt-get install git -y
-snap install --clasic code 
-snap install chromium
-sudo snap install libreoffice
+apt-get install gnome-tweaks chrome-gnome-shell gnome-shell-extensions lm-sensors filezilla virtualbox git -y
+snap install --classic code 
+snap install chromium 
+snap install libreoffice
 
 ```
