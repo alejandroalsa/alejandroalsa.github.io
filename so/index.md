@@ -12,4 +12,4 @@ En esta parte del blog se publicarán datos, tutoriales, guías de instalación 
 *   [Windows 10](/so/windows10).
 *   [Windows 11](/so/windows11).
 *   [Windows Server 2022](/so/windows-server).
-*   [Teoria Sistemas Operativos](/so/teoriaso.md).
+*   [Teoria Sistemas Operativos](/so/teoria-so.md).
