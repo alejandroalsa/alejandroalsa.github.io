@@ -35,3 +35,5 @@ snap install chromium
 snap install libreoffice
 
 ```
+
+Descargar [Script](install.sh)
