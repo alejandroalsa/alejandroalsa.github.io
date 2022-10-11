@@ -11,5 +11,5 @@ En este post veremos todo acerca de:
 *   [Gestión de Procesos](/so/gestion-procesos).
 *   [Gestión de Memoria](/so/gestion-memoria).
 *   [Gestión de Entrada/Salida](/so/gestionentrada_salida).
-*   [Gestión de archivos y dispositivos](/so/gestion-archivos_dispositivos).
+*   [Gestión de Archivos y Dispositivos](/so/gestion-archivos_dispositivos).
 *   [Explotación y Administración de Sistemas Operativos](/so/explotacion_administracion).
