@@ -8,6 +8,7 @@ description: "Instalación del S.O Ubuntu 22 LTS"
 El primer paso que tendremos que realizar será la descarga de la ISO de Ubuntu 22, junto con una herramienta para poder crear unidades USB flash.
 
 Enlace de Ubuntu 22 LTS [ISO](https://ubuntu.com/download/desktop)
+
 Enlace USB flash [Rufus](https://rufus.ie/en/)
 
 Una vez lista la unidad USB comenzaremos la instalación, en el primer paso tendremos que seleccionar el idioma del S.O.
