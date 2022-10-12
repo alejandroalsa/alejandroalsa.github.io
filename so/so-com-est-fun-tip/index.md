@@ -74,7 +74,7 @@ El **Kernel** se encarga de secuenciar procesos, reservar espacio de memoria y d
 
 El **Shell** se encarga de la interpretación de las órdenes.
 
-### Estructura
+## Estructura
 
 Los S.O se pueden clasificar en cuatro categorías:
 
@@ -93,3 +93,50 @@ Los S.O se pueden clasificar en cuatro categorías:
 *   **Cliente/Servidor:** En estos S.O cada una de sus funciones se implementa como un programa independiente y se ejecuta al mismo nivel que los programas de usuario. Estos suelen presentar un gran problema de rendimiento.
 
 ![IMG](https://ikastaroak.birt.eus/edu/argitalpen/backupa/20200331/1920k/es/DAMDAW/SI/SI02/es_DAMDAW_SI02_Contenidos/SI02_CONT_R20_so-microkern.png)
+
+## Funciones
+
+Los S.O cumplen las siguientes funciones principales:
+
+* **Iniciar el Sistema:** Iniciar el hardware, dejando así la máquina lista para ejecutar las órdenes del usuario.
+
+* **Interfaz de Usuario:** Presentar al usuario y al programador una máquina más sencilla.
+
+* **Gestionar los Recursos:** El S.O es responsable del uso eficiente del sistema y de solucionar los posibles conflictos.
+
+* **Gestionar Procesos del Sistema:** Mantener varios procesos a la vez en ejecución.
+
+* **Gestión de Interrupciones:** Incorporar mecanismo que den respuesta adecuada a las interrupciones.
+
+* **Gestionar la Seguridad:** Proporcionar al sistema un acceso seguro.
+
+* **Recoger datos Estadísticos:** Recoger estadísticas, recursos y supervisar los parámetros de rendimiento.
+
+## Tipos
+
+Tipos de S.O atendiendo a los siguientes criterios:
+
+* **Según el número de usuarios ↧**
+
+    * **Monousuario:** Solo tiene un usuario y generalmente está dedicado a una sola función, administración de ficheros.
+
+    * **Multiusuario:** Permiten compartir recursos entre varios usuarios, evitando tiempos muertos y utilizar simultáneamente los recursos de sistema.
+
+* **Según el número de procesos ↧**
+
+    * **Monotarea:** Solo se puede ejecutar un programa a la vez.
+
+    * **Multitarea:** Se pueden ejecutar varios programas a la vez o varios procesos de forma simultánea, para ello la CPU compartirá los tiempos de uso del procesador entre los diferentes programas.
+
+* **Según el número de procesadores ↧**
+    * **Monoproceso:** Donde el PC solo tiene un procesador.
+
+    * **Multiproceso:** El PC cuenta con varios procesadores, pudiendo actuar de dos formas distintas: **Multiproceso Simétrico (SMP)**, donde el sistema utilizara la totalidad de los procesadores y el **Multiproceso Asimétrico (AMP)** donde estos irán saturando de trabajo a los procesadores poco a poco.
+
+* **Según el tiempo de respuesta ↧**
+    
+    * **Tiempo real:** Donde la respuesta es inmediata.
+    
+    * **Tiempo compartido:** Cada proceso utilizara fracciones de tiempo de ejecución de la CPU hasta su finalización.
+
+* **Según la conectividad:** Estos se aplican a los S.O en red.
