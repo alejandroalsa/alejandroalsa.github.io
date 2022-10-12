@@ -6,9 +6,9 @@ description: "Gestión de Entrada/Salida"
 # Gestión de Entrada/Salida
 
 
-Siguiente Tema [Gestión de Archivos y Dispositivos](/gestion-archivos_dispositivos)
+Siguiente Tema [Gestión de Archivos y Dispositivos](../gestion-archivos_dispositivos)
 
-Anterior Tema [Gestión de Memoria](/gestion-memoria)
+Anterior Tema [Gestión de Memoria](../gestion-memoria)
 
 
 
