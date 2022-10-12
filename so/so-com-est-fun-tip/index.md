@@ -141,9 +141,4 @@ Tipos de S.O atendiendo a los siguientes criterios:
 
 * **Según la conectividad:** Estos se aplican a los S.O en red.
 
-
 Siguiente Tema [Gestion de Procesos](so/gestion-procesos)
-
-
-
-Se termina el tema de Componentes, Estructura, Funciones y Tipos de Sistemas Operativos. ヽ（≧□≦）ノ
