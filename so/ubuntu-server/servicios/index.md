@@ -6,5 +6,5 @@ page.title: "Ubuntu Server 22 Servicios"
 
 Ubuntu Server 22 Servicios
 
-*   [DHCP](/dhcp)
-*   [IP-Priv Estatica](/ip_priv_estatica)
+*   [DHCP](/so/ubuntu-server/servicios/dhcp)
+*   [IP-Priv Estatica](/so/ubuntu-server/servicios/ip_priv_estatica)
