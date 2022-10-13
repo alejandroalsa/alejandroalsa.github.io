@@ -1,4 +1,4 @@
-# Contributing to the Cayman theme
+<!-- # Contributing to the Cayman theme
 
 Hi there! We're thrilled that you'd like to contribute to the Cayman theme. Your help is essential for keeping it great.
 
@@ -85,4 +85,4 @@ This project is governed by [the Contributor Covenant Code of Conduct](CODE_OF_C
 
 * [Contributing to Open Source on GitHub](https://guides.github.com/activities/contributing-to-open-source/)
 * [Using Pull Requests](https://help.github.com/articles/using-pull-requests/)
-* [GitHub Help](https://help.github.com)
+* [GitHub Help](https://help.github.com) -->

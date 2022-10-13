@@ -1,4 +1,4 @@
-# Contributor Covenant Code of Conduct
+<!-- # Contributor Covenant Code of Conduct
 
 ## Our Pledge
 
@@ -7,7 +7,7 @@ In the interest of fostering an open and welcoming environment, we as contributo
 ## Our Standards
 
 Examples of behavior that contributes to creating a positive environment include:
-
+<!--  -->
 * Using welcoming and inclusive language
 * Being respectful of differing viewpoints and experiences
 * Gracefully accepting constructive criticism
@@ -43,4 +43,4 @@ Project maintainers who do not follow or enforce the Code of Conduct in good fai
 This Code of Conduct is adapted from the [Contributor Covenant][homepage], version 1.4, available at [http://contributor-covenant.org/version/1/4][version]
 
 [homepage]: http://contributor-covenant.org
-[version]: http://contributor-covenant.org/version/1/4/
+[version]: http://contributor-covenant.org/version/1/4/ -->
