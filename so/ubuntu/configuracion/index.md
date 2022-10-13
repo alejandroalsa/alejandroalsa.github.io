@@ -17,6 +17,7 @@ El software que se instalara es:
 *   Filezilla
 *   Virtualbox
 *   Git
+*   Unzip
 *   Visual Studio Code
 *   Chromium
 *   Libre Office
@@ -29,7 +30,7 @@ set -x
 apt-get update -y
 apt-get upgrade -y
 
-apt-get install gnome-tweaks chrome-gnome-shell gnome-shell-extensions lm-sensors filezilla virtualbox git -y
+apt-get install gnome-tweaks chrome-gnome-shell gnome-shell-extensions lm-sensors filezilla virtualbox git unzip -y
 snap install --classic code 
 snap install chromium 
 snap install libreoffice
