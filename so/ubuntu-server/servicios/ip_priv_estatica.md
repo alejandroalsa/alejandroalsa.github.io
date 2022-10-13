@@ -21,19 +21,16 @@ sudo nano /etc/netplan/00-installer-config.yaml
 El archivo de fábrica tiene el siguiente formato:
 
 ```yalm
-
 network:
   ethernets:
     enp0s3:
       dhcp4: true
   version: 2
-
 ```
 
 El archivo modificado para obtener una IP Estática tiene el siguiente formato:
 
 ```yalm
-
 network:
   ethernets :
     ######:             #Tarjeta de Red.
@@ -43,7 +40,6 @@ network:
       nameservers:
         addresses: [8.8.8.8, 1.1.1.1]
   version: 2
-
 ```
 
 Después de editar el fichero tendremos que aplicar los cambios, para ello emplearemos el siguiente comando:
