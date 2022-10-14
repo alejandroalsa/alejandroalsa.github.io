@@ -5,9 +5,6 @@ description: "Gestión de Procesos"
 
 # Gestión de Procesos
 
-
-# Sistemas Operativos, Componentes, Estructura, Funciones y Tipos.
-
 ```
 1.-Gestión de Procesos
     1.1-Estructura de un proceso
@@ -108,6 +105,8 @@ Permite asignar a la CPU de forma prioritaria a procesos a los que les quede el 
 | P4       | 5       | 4              |
 
 ![img](https://user-images.githubusercontent.com/67869168/195902843-d3b21db1-6e3a-496b-993e-5bb50a3f39d2.png)
+
+El último proceso no es P2 es P1. (* ￣︿￣)
 
 ## Algoritmo Round-Robin
 
