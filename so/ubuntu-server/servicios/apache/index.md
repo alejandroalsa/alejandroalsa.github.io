@@ -13,10 +13,9 @@ En este post veremos todos los contenidos acerca del servidor web Apache 2.4 tra
 ## Introducción
 
 *   [Protocolo HTTP](/so/ubuntu-server/servicios/apache/introduccion/protocolo_http)
-*   [Servidor web Apache2.4](/so/ubuntu-server/servicios/apache/introduccion/apache)
 *   [Instalación](/so/ubuntu-server/servicios/apache/introduccion/instalacion)
 *   [Estructura de ficheros](/so/ubuntu-server/servicios/apache/introduccion/estructura_ficheros)
-*   [Directivas]()
+*   [Directivas](/so/ubuntu-server/servicios/apache/introduccion/estructura_ficheros)
 
 ## Virtual Hosting
 

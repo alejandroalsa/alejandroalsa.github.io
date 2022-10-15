@@ -68,4 +68,4 @@ Las Cabeceras HTTP son los parámetros que se envían en una petición o respues
 *   **Content-Location:** La cabecera Content-Location indica una ubicación alternativa para los datos devueltos. Su principal uso es indicar la URL de un recurso transmitido y que ha resultado de una negociación de contenido.
 *   **Set-Cookie:** La cabecera de respuesta HTTP Set-Cookie se usa para enviar cookies desde el servidor al agente de usuario, así el agente de usuario puede enviarlos de vuelta al servidor.
 
-[Siguiente Tema](/so/ubuntu-server/servicios/apache/introduccion/apache.md)
+[Siguiente Tema](/so/ubuntu-server/servicios/apache/introduccion/instalacion)
