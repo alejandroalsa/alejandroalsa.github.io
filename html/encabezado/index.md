@@ -35,6 +35,6 @@ Es recomendable que se siga una buena estructura de encabezados para mejorar el 
 *   `<h5>` X3
 *   `<h6>` X3 (Se pueden llegar a suprimir)
 
-<a  href="https://llalex-esp.github.io/html/atributos">Tema Anterior (HTML Atributos)</a>
+<a  href="https://blog.alejandroalsa.es/html/atributos">Tema Anterior (HTML Atributos)</a>
 
-<a  href="https://llalex-esp.github.io/html/parrafos">Siguiente Tema (HTML Párrafos)</a>
+<a  href="https://blog.alejandroalsa.es/html/parrafos">Siguiente Tema (HTML Párrafos)</a>

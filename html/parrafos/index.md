@@ -130,6 +130,6 @@ con pececillos
 de sombra y plata.
 </pre>
 
-<a href="https://llalex-esp.github.io/html/encabezado">Tema Anterior (HTML Encabezados)</a>
+<a href="https://blog.alejandroalsa.es/html/encabezado">Tema Anterior (HTML Encabezados)</a>
 
-<a href="https://llalex-esp.github.io/html/formato">Siguiente Tema (HTML Formato)</a>
+<a href="https://blog.alejandroalsa.es/html/formato">Siguiente Tema (HTML Formato)</a>

@@ -38,7 +38,7 @@ Los Párrafos en HTML se definen con la etiqueta `<p>`
 Los enlaces en HTML se definen con la etiqueta `<a>`
 
 ```html
-<a href="https://llalex-esp.github.io/html/basico">
+<a href="https://blog.alejandroalsa.es/html/basico">
 ```
 
 El destino del enlace se define con el atributo `href`.
@@ -58,6 +58,6 @@ Las imágenes en HTML se definen con la etiqueta `<img>`
 
 El archivo de origen (`<src>` este puede ser un enlace de otra web o estar en un directorio de la web), el texto alternativo (`alt`), y por último el ancho y el alto (`width`, `height`).
 
-<a href="https://llalex-esp.github.io/html/introduccion">Tema Anterior (Introducción)</a>
+<a href="https://blog.alejandroalsa.es/html/introduccion">Tema Anterior (Introducción)</a>
 
-<a href="https://llalex-esp.github.io/html/elementos">Siguiente Tema (HTML Elementos)</a>
+<a href="https://blog.alejandroalsa.es/html/elementos">Siguiente Tema (HTML Elementos)</a>

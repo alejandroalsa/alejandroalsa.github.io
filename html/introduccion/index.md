@@ -67,5 +67,5 @@ Un navegador no muestra las etiquetas HTML, pero las usa para determinar cómo m
 ![IMG](https://www.aulaclic.es/html/graficos/estructura_pagina_web.png)
 
 
-<a href="https://llalex-esp.github.io/html/basico">Siguiente Tema (HTML Básico)</a>
+<a href="https://blog.alejandroalsa.es/html/basico">Siguiente Tema (HTML Básico)</a>
 

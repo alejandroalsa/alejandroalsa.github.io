@@ -16,7 +16,7 @@ Datos a tener en cuenta acerca de los atributos:
 La etiqueta `<a>` define el hipervínculo y el atributo `href=""` especifica la URL de la página a la que va el enlace:
 
 ```html
-<a  href="https://llalex-esp.github.io">BLOG</a>
+<a  href="https://blog.alejandroalsa.es">BLOG</a>
 ```
 
 ## Atributo `src`
@@ -105,6 +105,6 @@ El valor del atributo de título se mostrará como información sobre herramient
 
 <p  title="Esto es un párrafo">Esto es un párrafo</p>
 
-<a  href="https://llalex-esp.github.io/html/elementos">Tema Anterior (HTML Elementos)</a>
+<a  href="https://blog.alejandroalsa.es/html/elementos">Tema Anterior (HTML Elementos)</a>
 
-<a  href="https://llalex-esp.github.io/html/encabezado">Siguiente Tema (HTML Encabezados)</a>
+<a  href="https://blog.alejandroalsa.es/html/encabezado">Siguiente Tema (HTML Encabezados)</a>
