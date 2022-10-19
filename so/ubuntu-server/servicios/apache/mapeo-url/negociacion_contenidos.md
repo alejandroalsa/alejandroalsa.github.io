@@ -21,7 +21,7 @@ cd /var/www/alejandroalsa
 touch index.html.en  index.html.es
 ```
 
-Para indicar el idioma tendremos que oponer después de `.html` el código de idioma
+Para indicar el idioma tendremos que poner después de `.html` el código de idioma
 
 [Códigos de idioma](http://utils.mucattu.com/iso_639-1.html)
 
