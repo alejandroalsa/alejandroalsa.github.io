@@ -70,4 +70,4 @@ Como se puede observar es necesario (directiva IfModule) tener activo los módul
 a2enmod include
 ```
 
-[Siguiente Tema](/so/ubuntu-server/servicios/apache/mapeo-url/paginas_error)
+[Siguiente Tema](so/ubuntu-server/servicios/apache/control-acceso/control_acceso)

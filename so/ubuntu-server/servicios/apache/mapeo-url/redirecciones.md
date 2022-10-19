@@ -10,4 +10,4 @@ Páginas de error
 
 
 
-[Siguiente Tema](/so/ubuntu-server/servicios/apache/control-acceso/control_acceso)
+[Siguiente Tema](//so/ubuntu-server/servicios/apache/mapeo-url/paginas_error)
