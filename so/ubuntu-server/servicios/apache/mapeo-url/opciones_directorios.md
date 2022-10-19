@@ -105,6 +105,8 @@ Sí queremos editar la lista de ficheros por defecto tendríamos que ir a `/etc/
 
 ## MultiViews
 
+[Ver](/so/ubuntu-server/servicios/apache/mapeo-url/negociacion_contenidos)
+
 ## SymLinksIfOwnerMatch
 
 Como ya hemos definido antes si tenemos esta opción habilitada nos permite mostrará los ficheros o directorios si el cliente tiene el mismo usuario o grupo que el servidor.
