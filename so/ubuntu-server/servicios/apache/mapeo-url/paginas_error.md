@@ -1,10 +1,10 @@
 ---
-page.title: "Paginas de Error"
+page.title: "Páginas de Error"
 ---
 
-# Redirecciones
+# Páginas de Error
 
-Redirecciones
+Páginas de Error
 
 > Actualizado al 19 oct 2022
 
