@@ -36,7 +36,7 @@ En este post veremos todos los contenidos acerca del servidor web Apache 2.4 tra
 *   [Control de Acceso](/so/ubuntu-server/servicios/apache/control-acceso/control_acceso)
 *   [Autentificación básica](/so/ubuntu-server/servicios/apache/control-acceso/autentificacion_basica)
 *   [Autentificación digest](/so/ubuntu-server/servicios/apache/control-acceso/autentificacion_digest)
-*   [Políticas de autentificación](/so/ubuntu-server/servicios/apache/control-acceso/politicas_autentificacionCopy)
+*   [Políticas de autentificación](/so/ubuntu-server/servicios/apache/control-acceso/politicas_autentificacion)
 
 ## .htaccess
 *   [.htaccess](/so/ubuntu-server/servicios/apache/htaccess/htaccess)
