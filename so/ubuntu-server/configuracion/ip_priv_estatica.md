@@ -48,6 +48,6 @@ Después de editar el fichero tendremos que aplicar los cambios, para ello emple
 
 Con estos cambios ya tendremos configurada nuestra IP Privada Estática.
 
-[00-installer-config->Fabrica](/so/ubuntu-server/servicios/fab/00-installer-config.yaml)
+[00-installer-config->Fabrica](/so/ubuntu-server/configuracion/fab/00-installer-config.yaml)
 
-[00-installer-config->Modificado](/so/ubuntu-server/servicios//mod/00-installer-config.yaml)
+[00-installer-config->Modificado](/so/ubuntu-server/configuracion//mod/00-installer-config.yaml)
