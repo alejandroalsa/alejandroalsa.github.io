@@ -2,7 +2,7 @@
 page.title: "Políticas de autentificación"
 ---
 
-# Políticas de autentificación
+# Políticas de autentificación.
 
 Políticas de autentificación
 
