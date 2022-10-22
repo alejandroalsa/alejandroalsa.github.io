@@ -43,4 +43,4 @@ Re-type new password:
 
 Ahora se usa también para identificar un nombre de `dominio (realm)` que debe de coincidir con el que aparezca después en el fichero de contraseñas
 
-[Siguiente Tema](so/ubuntu-server/servicios/apache/control-acceso/politicas_autentificacion)
+[Siguiente Tema](/so/ubuntu-server/servicios/apache/control-acceso/politicas_autentificacion)

@@ -65,4 +65,4 @@ El archivo donde guardamos los usuarios y contraseñas tiene que tener el siguie
 NombreGrupo: usuario1 usuario2 usuario3
 ```
 
-[Siguiente Tema](so/ubuntu-server/servicios/apache/control-acceso/autentificacion_digest)
+[Siguiente Tema](/so/ubuntu-server/servicios/apache/control-acceso/autentificacion_digest)

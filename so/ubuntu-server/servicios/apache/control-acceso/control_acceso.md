@@ -95,4 +95,4 @@ Se puede usar el operador `not` para indicar la denegación, por ejemplo:
 Tambien podemos filtrar por archivos
 
 
-[Siguiente Tema](so/ubuntu-server/servicios/apache/control-acceso/autentificacion_basica)
+[Siguiente Tema](/so/ubuntu-server/servicios/apache/control-acceso/autentificacion_basica)

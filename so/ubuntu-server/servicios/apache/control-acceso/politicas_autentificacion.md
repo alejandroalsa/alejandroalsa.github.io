@@ -45,4 +45,4 @@ En el segundo ejemplo definimos lo siguiente:
 
 `<RequireAny> (1)` Alguna de las dos condiciones siguientes `<RequireAll> (1)` y `<RequireAll> (2)` se tienen que cumplir , `<RequireAll> (1)` si o si se tiene que cumplir que el usuario sea `root` y que la dirección IP sea `10.10.10.###`, `<RequireAll> (2)` alguna de las condiciones basándonos en `<RequireAny> (2)` se tienen que cumplir si o si, `<RequireAny> (2)` el usuario que acceda tiene que pertenecer al grupo sysadmins o useraccounts, también tendrá acceso si es el usuario administrador.
 
-[Siguiente Tema](so/ubuntu-server/servicios/apache/htaccess/htaccess)
+[Siguiente Tema](/so/ubuntu-server/servicios/apache/htaccess/htaccess)
