@@ -43,9 +43,9 @@ En este post veremos todos los contenidos acerca del servidor web Apache 2.4 tra
 
 ## Módulos de Apache 2.4
 *   [Módulos de Apache](/so/ubuntu-server/servicios/apache/modulos/modulos_apache)
-*   [Módulos user_dir](/so/ubuntu-server/servicios/apache/modulos/modulos_user_dir)
-*   [Servidor WebDAV](/so/ubuntu-server/servicios/apache/modulos/servidor_webdav)
-*   [Módulos rewrite](/so/ubuntu-server/servicios/apache/modulos/modulos_rewrite)
+*   [Módulos user_dir - (Espacios webs para usuarios)](/so/ubuntu-server/servicios/apache/modulos/modulos_user_dir)
+*   [Servidor WebDAV - (Pequeña nube para archivos)](/so/ubuntu-server/servicios/apache/modulos/servidor_webdav)
+*   [Módulos rewrite - (URL para recibir datos concretos (Idiomas, Operaciones))](/so/ubuntu-server/servicios/apache/modulos/modulos_rewrite)
 
 ## Gestión de Peticiones
 
