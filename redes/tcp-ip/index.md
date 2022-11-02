@@ -56,7 +56,7 @@ El modelo Cliente/Servidor está formado por dos procesos que interactúan entre
 
 *   **Servidor** Inicialmente, permanece a la espera escuchando las posibles conexiones de los potenciales clientes. Deben tenerse en cuenta en su diseño cuestiones como la autenticación, autorización, seguridad y privacidad de la información.
 
-![IMG](https://infimg.com/bimg/2019/02/diagrama-cliente-servidor.jpeg)
+![IMG](https://upload.wikimedia.org/wikipedia/commons/1/1c/Cliente-Servidor.png)
 
 ### Los servicios de red
 
