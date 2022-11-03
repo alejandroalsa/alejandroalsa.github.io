@@ -19,7 +19,7 @@ Es importante destacar que, asimismo, en este capítulo se realizara la configur
     *   Arquitectura TCP/IP, modelo Cliente/Servidor y servicios de red. [🔗](#arquitectura-tcpip-modelo-clienteservidor-y-servicios-de-red)
     *   Capa de red en TCP/IP - Protocolo IP. [🔗](#capa-de-red-en-tcpip---protocolo-ip)
     *   Capa de transporte en TCP/IP - Protocolos TCP y UDP. [🔗](#capa-de-transporte-en-tcpip---protocolos-tcp-y-udp)
-    *   Traducci ́on de direcciones de red - NAT. [🔗](#traducci-́on-de-direcciones-de-red---nat)
+    *   Traducción de direcciones de red - NAT. [🔗](#traducci-́on-de-direcciones-de-red---nat)
 
 
 ## Arquitectura TCP/IP, modelo Cliente/Servidor y servicios de red.
@@ -48,7 +48,7 @@ paradigmas:
 
 *   **Entre Pares o P2P** Todos los nodos de la red son responsables por igual en la comunicación de las aplicaciones, y no existe un elemento que centralice la comunicación.
 
-*   **Hibrido** El servidor no presta el servicio como tal, sino que generalmente pone en contacto a los clientes.
+*   **Híbrido** El servidor no presta el servicio como tal, sino que generalmente pone en contacto a los clientes.
 
 El modelo Cliente/Servidor está formado por dos procesos que interactúan entre sí:
 
