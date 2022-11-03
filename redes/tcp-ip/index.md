@@ -175,4 +175,74 @@ Las tablas de encaminamiento, almacenan la información necesaria para realizar 
 
 ## Capa de transporte en TCP/IP - Protocolos TCP y UDP.
 
+Hasta ahora, hemos visto que el protocolo IP nos permite comunicar dos máquinas remotas haciendo que los datagramas puedan ir del origen al destino, pero al disponer únicamente de las direcciones IP de origen y destino como mecanismo de diferenciación en la comunicación, se plantea el problema de que no nos permite, por ejemplo, mantener varias comunicaciones simultáneas entre los dos mismos equipos, ya que a nivel IP no podrı́amos diferenciar los datagramas pertenecientes a unas u otras.
+
+El nivel de transporte nos provee de elementos para diferenciar y gestionar, de forma
+simultánea, múltiples orı́genes y destinos en una comunicación y múltiples comunicaciones en cada
+equipo. 
+
+### Puertos de comunicaciones
+
+Cada proceso del nivel de apliacacion tiene asociado uno o varios peirtos a terabes de los ciales es acccesoble. CAda pierto se indentiifca por un numero binario de 16 bits, 2^16 -1 = 65535.
+
+Existen varias clases de piertos en fiuncion del uso que se hace de ellos:
+
+*   **0 - 1023** Se conocen como well known ports y están reservados para aplicaciones y servicios estándar como HTTP, FTP
+*   **1024 - 49151** Para aplicaciones no estándar instaladas por el usuario que no tienen un puerto well known preasignado.
+*   **049152 - 65535** Habitualmente se emplean para iniciar conexiones desde el cliente.
+
+La correspondencia entre procesos y puertos se hace de dos formas distintas:
+
+*   **Asignacion Estatica** Los well known ports estan reservador para aplicaciones estanda y solo pueden ser empreados por estos procesos
+*   **Asignacion Dinamica** Cada proceso necesita un puerto y este no se asigna de forma estatica.
+
+### Protocolo UDP
+
+El protocolo UDP (User Datagram Protocol) proporciona un servicio no orientadi a conexion, sin establecimiento de conexion previo a la transmision, son control de flujo.
+
+Al tratarse de un protocolo muy basico y con poca seguridad se suele aplicar a conexiones en las que prevalice mas la velocidad que la fiabilidad
+
+### Protocolo TCP
+
+El protocolo TCP (Transmission Control Protocol) proporciona un servicio orientado a conexion con lo que existen diferencias respecto a UDP TCP, obliga a un establecimiento previo de un a conexion y a un control en el flujo de la comunicaicon, por lo que prevalece la fiabilidad y no la velocidad.
+
+### Conexiones TCP
+
+La conexión TCP se define de forma única por los datos relativos a los puntos extremos de la comunicación, es decir, por estos cuatro elementos: (Dirección IP origen, Puerto TCP origen) ) (Dirección IP destino, Puerto TCP destino). No puede haber dos conexiones TCP que tengan en común estos cuatro elementos.
+
 ## Traducción de direcciones de red - NAT.
+
+El crecimiento exponencial del número de ordenadores conectados a Internet y la consiguiente demanda de direcciones IP públicas ha provocado que el espacio de direcciones IP aún disponible empiece a agotarse rápidamente.
+
+La técnica más destacada en este sentido es la traducción de direcciones de red - NAT (Network Address Translation). NAT permite que direcciones IP privadas puedan acceder a Internet a través de una dirección IP pública.
+
+![IMG](https://user-images.githubusercontent.com/67869168/199799268-7d70ee2a-c765-49dc-8cb2-e0a8c4093d9c.png)
+
+### Funcionamiento
+
+Para que el sistema NAT funcione es necesario que el encaminador que da acceso a Internet reescriba algunos datos en los datagramas que encamina. En función de la información que se modifique tenemos varios tipos de NAT:
+
+*   **NAT básico** Unicamente se modifica la dirección IP (NAT a nivel de red).
+*   **NAPT (Network Address Port Translation) / PAT (Port Address Translation)** Además de la dirección IP también se modifican los puertos empleados en la comunicación a nivel de transporte.
+
+Se modifica la dirección IP de origen y el puerto de origen en el tráfico saliente de la red privada.
+
+Se modifica la dirección IP de destino y el puerto de destino en el tráfico entrante en la red privada.
+
+### Tráfico saliente
+
+La idea fundamental aquı́ es que el encaminador que hace NAT sustituya la dirección IP de origen, privada, por la dirección IP pública del encaminador NAT, de forma que cuando el datagrama llegue a su destino parezca que el origen del mismo es el propio encaminador NAT.
+
+### Respuesta al tráfico saliente
+
+Cuando al encaminador NAT le llega un datagrama del exterior, comprueba si la dirección IP de destino y el puerto de destino del datagrama entrante coinciden con algún registro de su tabla NAT. Si es ası́ (respuesta al tráfico saliente), quiere decir que se trata de una respuesta a un datagrama saliente anterior, y en este caso, el encaminador NAT cambiará en el datagrama entrante la dirección IP de destino y el puerto destino por la dirección IP interna, y el puerto interno de la entrada de la tabla NAT cuyos campos IP externa y Puerto externo coincidan con la dirección IP destino y puerto destino que trae el datagrama entrante.
+
+![IMG](https://user-images.githubusercontent.com/67869168/199800310-b71aee1a-de72-44b4-956a-260db8ba7eb3.png)
+
+### Soluciones al tráfico entrante nuevo - Redirección de puertos
+
+El hecho de descartar por defecto las conexiones entrantes puede suponer una gran limitación en nuestra red interna, ya que si en ella disponemos de algún tipo de servidor, nos va a resultar imposible permitir que clientes de la red externa se conecten a nosotros. 
+
+La redirección de puertos (Port Forwarding) consiste en indicar al encaminador NAT una dirección IP de la red interna a la que redirigir todo el tráfico entrante nuevo. Para ello, deberemos añadir manualmente nuevas entradas en la tabla NAT que redirijan el tráfico entrante nuevo en función del puerto al que vaya dirigido.
+
+![IMG](https://user-images.githubusercontent.com/67869168/199801296-a99aa36e-3c82-4047-b0cd-6d28fff94751.png)
