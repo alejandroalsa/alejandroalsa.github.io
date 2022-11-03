@@ -98,9 +98,81 @@ Ejemplos:
 ## Capa de red en TCP/IP - Protocolo IP.
 
 
+A nivel de red se realiza el direccionamiento de los dispositivos y el encaminamiento de la información a través de la red. Todo ello se lleva a cabo con el protocolo IP, que es el principal de este nivel en la arquitectura TCP/IP. Actualmente, se emplea mayoritariamente la versión 4 del protocolo IP (IPv4), pero la versión siguiente IPv6 está desarrollada desde hace años y empieza a implantarse.
+
+### Direccionamiento IP
+
+El protocolo IP proporciona conectividad extremo a extremo en la comunicación. Esto supone que debe ser capaz de direccionar de forma única todos los dispositivos que tengamos conectados en nuestra red y, por extensión, en todo Internet.
+
+Una dirección IP no identifica a un ordenador en la red, sino que identifica a una interfaz de red de un ordenador en la red. Por eso es posible que un mismo equipo pueda tener varias direcciones IP, una por interfaz.
+
+### Formato de direcciones IP
+
+Una dirección IP es un número binario de 32 bits. Esto permite un espacio de direcciones de 2 32 (4.294.967.296) direcciones diferentes posibles, se dividen los 32 bits en 4 grupos de 8 bits.
+
+![IMG](https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Ipv4_address_Spanish.svg/220px-Ipv4_address_Spanish.svg.png)
+
+Las direcciones IP constan de dos partes:
+
+*   **Identificador de Red** Determina la red en la que se encuentra el dispositivo.
+
+*   **Identificador de Host** Identifica el host dentro de la red.
+
+![IMG](https://sites.google.com/site/redeslocalesyglobales/_/rsrc/1383775969901/6-arquitecturas-de-redes/6-arquitectura-tcp-ip/7-nivel-de-red/8-direccionamiento-ip-basico/1-partes-de-una-direccion-ip/tcpipdirec11.png?height=180&width=400)
+
+### Máscara de red
+
+La máscara de red se emplea para diferenciar el prefijo de la dirección IP correspondiente al identificador de red, de la parte correspondiente al identificador del host. La máscara de red es un número de 32 bits que define en las posiciones a “1” el prefijo o identificador de red, y en las posiciones a “0” el sufijo o identificador del host.
+
+![IMG](https://user-images.githubusercontent.com/67869168/199673175-d464c085-6506-493e-9112-e4e1f6ff7185.png)
+
+### Direcciones especiales
+
+Dentro del conjunto de direcciones IP hay algunas particularmente importantes que merecen una explicación aparte:
+
+*   **Dirección de Red** Identifica al conjunto de la red. En ella la parte correspondiente al identificador del dispositivo tiene todos sus bits a 0. (192.168.1.0)
+*   **Dirección de difusión limitada** Se emplea para mandar un mensaje de difusión o broadcast al conjunto de dispositivos de la propia red.
+*   **Dirección de difusión dirigida** Se emplea para mandar un mensaje de difusión o broadcast al conjunto de dispositivos de una red.
+*   **Dirección de bucle local** Sirve para referenciar internamente a la interfaz, es decir, para los procesos de comunicación a través de TCP/IP que se generan dentro del host. (127.0.0.1/8)
+
+### Direcciones públicas
+
+Identifican a un dispositivo conectado a Internet.
+
+### Direcciones privadas
+
+Son rangos de direcciones reservados para redes privadas o intranets y no pueden emplearse en Internet.
+
+### Direcciones de enlace local
+
+Hay un conjunto de direcciones reservado para ser asignado en redes que no dispongan de direccionamiento estático ni dinámico, es decir, son direcciones que se asignan los dispositivos a sí mismos cuando nadie lo hace. (169.254.0.0/16)
+
+### Encaminamiento IP
+
+El encaminamiento a nivel IP puede definirse como el proceso de llevar un datagrama desde la máquina origen a la máquina destino.
+
+### Encaminadores
+
+Los encaminadores o routers son dispositivos de nivel 3 que enlazan las diferentes redes que forman parte de una “red de redes“. Un router estar ́a conectado al menos a dos redes y realizar ́a el encaminamiento de todo el tráfico de datagramas que pase por  ́el
+
+![IMG](https://user-images.githubusercontent.com/67869168/199672941-a1ff0d05-0c04-4162-b46c-ae98a1990a46.png)
+
+### Tablas de encaminamiento
+
+Las tablas de encaminamiento, almacenan la información necesaria para realizar el encaminamiento de los datagramas y est ́an implementadas tanto en los routers como en los hosts. Los campos m ́as importantes de los que consta son:
+
+*   **Destino (D)** Dirección IP de una red o host.
+*   **Máscara de red (MR)** Determinar exactamente todas las direcciones IP que incluye.
+*   **Dirección de salto (DS)** Dirección IP a la que se enviar ́a el datagrama.
+*   **Interfaz** Dirección IP del encaminador por la que hay que enviar el datagrama.
+
+![IMG](https://user-images.githubusercontent.com/67869168/199673941-12d503f1-bdad-4e7d-a60b-52f36112607a.png)
+
+### Protocolos de encaminamiento
+
+*   **Encaminamiento estático** La configuración de las tablas de encaminamiento se hace de forma manual
+*   **Encaminamiento dinámico** El propio encaminador actualiza sus tablas gracias a la utilización de protocolos específicos como RIP (Routing Information Protocol), OSP (Open Shortest Path First) y BGP (Border Gateway Protocol). 
+
 ## Capa de transporte en TCP/IP - Protocolos TCP y UDP.
 
-
-## Traducci ́on de direcciones de red - NAT.
-
-
+## Traducción de direcciones de red - NAT.
