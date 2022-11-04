@@ -2,13 +2,6 @@
 
 En este blog publicaré tutoriales, información, cursos Se publica artículo de IP Estática Fijay curiosidades acerca de:
 
-# Última publicación
->  Sept 04, 2022 
-
-No disponible. ╬▔皿▔)╯
-
-[Ver más -->](#).
-
 # APP
 >  Sept 04, 2022 
 
