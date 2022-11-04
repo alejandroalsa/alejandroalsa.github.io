@@ -34,7 +34,7 @@ Si vemos el contenido del fichero de configuración del módulo php de apache2, 
 
 Donde se crea un nuevo manejador, que hace que los ficheros cuya extensión es php sean gestionados por el módulo que interpreta el código php.
 
-### Configuración de php
+## Configuración de php
 
 La configuración de php está dividida en distintos directorios para las distintas formas de ejecutar el código php:
 
@@ -48,7 +48,7 @@ Si nos fijamos en la configuración de php para apache2:
 *   **/etc/php/7.0/apache2/conf.d** Módulos instalados en esta configuración de php (enlaces simbólicos a `/etc/php/7.0/mods-available`).
 *   **/etc/php/7.0/apache2/php.ini** Configuración de php para este escenario.
 
-### PHP-FPM
+## PHP-FPM
 
 FPM (FastCGI Process Manager) es una implementación alternativa al PHP FastCGI. FPM se encarga de interpretar código PHP. Aunque normalmente se utiliza junto a un servidor web (Apache2 o ngnix) vamos a hacer en primer lugar una instalación del proceso y vamos a estudiar algunos parámetros de configuración y estudiar su funcionamiento.
 
@@ -64,7 +64,7 @@ a2dismod mpm_prefork
 a2enmod mpm_event
 ```
 
-### Configuración
+## Configuración
 
 Con esto hemos instalado php 7.0 y php-fpm. Veamos primeros algunos ficheros de configuración de php:
 
@@ -98,7 +98,7 @@ Por último reiniciamos el servicio:
 systemctl restart php7.0-fpm
 ```
 
-### Configuración de Apache2 con php-fpm
+## Configuración de Apache2 con php-fpm
 
 Necesito activar los siguientes módulos:
 
@@ -106,7 +106,7 @@ Necesito activar los siguientes módulos:
 a2enmod proxy proxy_fcgi
 ```
 
-### Activarlo para cada virtualhost
+## Activarlo para cada virtualhost
 
 Podemos hacerlo de dos maneras:
 
@@ -136,7 +136,7 @@ Otra forma de hacerlo es la siguiente:
 </FilesMatch>
 ```
 
-### Activarlo para todos los virtualhost
+## Activarlo para todos los virtualhost
 
 Tenemos a nuestra disposición un fichero de configuración `php7.0-fpm` en el directorio `/etc/apache2/conf-available`. Por defecto funciona cuando php-fpm está escuchando en un socket UNIX, si escucha por un socket TCP, hay que cambiar la línea:
 
