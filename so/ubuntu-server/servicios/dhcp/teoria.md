@@ -4,33 +4,33 @@ page.title: "Teoria de un DHCP"
 
 # Teoria de un DHCP
 
-DHCP es un protocolo  de capa de aplicacion diseñado para implementar un servicio de configuracion automatica de red en redes TCP/IP.
+DHCP es un protocolo de capa de aplicación diseñado para implementar un servicio de configuración automática de red en redes TCP/IP.
 
-La funcion principal de DHCP es permitir a los equipos de una red obtener sus parametros de configuracion de forma automatica, el puerto en el que trabaja el protocolo DHCP es el 68/UDP.
+La función principal de DHCP es permitir a los equipos de una red obtener sus parámetros de configuración de forma automática, el puerto en el que trabaja el protocolo DHCP es el 68/UDP.
 
 
 ## Componentes
 
-*   **Servidor DHCP** Asigna la configuracion de la red
+*   **Servidor DHCP** Asigna la configuración de la red
 *   **Clientes DHCP** Realiza peticiones al servidor DHCP
-*   **Protocolo DHCP** Conjunto de normas y reglas en base al protocolo DHCP
-*   **Agentes de retansminión DHCP** Escuchan peticiones de los clientes DHCP y las retransmiten a los servidores DHCP ubicados en otras redes. 
+*   **Protocolo DHCP** Conjunto de normas y reglas basándonos en el protocolo DHCP
+*   **Agentes de retransmisión DHCP** Escuchan peticiones de los clientes DHCP y las retransmiten a los servidores DHCP ubicados en otras redes. 
 
 ![imagen](https://user-images.githubusercontent.com/67869168/199929081-17a33ad6-7659-4498-aa5b-e89ec3f2e04a.png).
 
 ## Tipos de asignación
 
-Existen tres tipos de asignaciones de configuracion:
+Existen tres tipos de asignaciónes de configuración:
 
-*   **Asignacion Estatica (Reserva)** Asigna direcciones IP concretas a equipos concretos.
+*   **Asignación Estática (Reserva)** Asigna direcciones IP concretas a equipos concretos.
 
-*   **Asignación dinamica** Se define un rango de asignacion de direcciones IP (10.10.10.100 - 10.10.10.200)
+*   **Asignación dinámica** Se define un rango de asignación de direcciones IP (10.10.10.100 - 10.10.10.200)
 
-*   **Asignación Automatica** Es igual que la asignacion dinamica, la unica diferencia es que en las asignaciones automaticas el plazo de concesión es ilimitado
+*   **Asignación Automática** Es igual que la asignación dinámica, la única diferencia es que en las asignaciónes automáticas el plazo de concesión es ilimitado
 
-## Ambito
+## Ámbito
 
-Se puede definir un ambito como un agrupamiento de equipos o clientes de una red que utilizan el servicio DHCP, dentro de un ambito se reservan direcciones IP.
+Se puede definir un ámbito como un agrupamiento de equipos o clientes de una red que utilizan el servicio DHCP, dentro de un ámbito se reservan direcciones IP.
 
 ## Rango
 
@@ -42,17 +42,17 @@ Un conjunto de direcciones pueden ser excluidas de un rango para no asignarlas a
 
 ## Reservas
 
-Consiste en la asignacion de una direccion IP fija a un equipo, se suele utilizar para asignar a servidores o equipos concretos en la red la misma direccion IP
+Consiste en la asignación de una dirección IP fija a un equipo, se suele utilizar para asignar a servidores o equipos concretos en la red la misma dirección IP
 
-## Tiempo de concesion (lease time)
+## Tiempo de concesión (lease time)
 
-El palzo de concesion es el tiempo en que un cliente DHCP mantiene como propios los datos de configuracion que le otorgo el servidor.
+El plazo de concesión es el tiempo en que un cliente DHCP mantiene como propios los datos de configuración que le otorgo el servidor.
 
-Cada vez que un cliente arranca su equipo, cada cierto tiempo o cuando se alcanza el limite de tiempo el equipo vuelve a consultar la informacion al servidor.
+Cada vez que un cliente arranca su equipo, cada cierto tiempo o cuando se alcanza el límite de tiempo, el equipo vuelve a consultar la información al servidor.
 
-A la hora de determinar el tiempo de concesion es importante analizar el tipo de red, en redes donde hay muchas direcciones IP disponibles y donde raravez la configuracion de los equipos cambia el tiempo de concesion sera alto, mientras que en redes donde los equipo cambien de subred con frecuencia y haya pocas direcciones IP disponibles el tiempo de concesion sera bajo.
+A la hora de determinar el tiempo de concesión es importante analizar el tipo de red, en redes donde hay muchas direcciones IP disponibles y donde rara vez la configuración de los equipos cambia, el tiempo de concesión será alto, mientras que en redes donde los equipo cambien de subred con frecuencia y haya pocas direcciones IP disponibles el tiempo de concesión será bajo.
 
-## Configuracion que asigna un servidor DHCP
+## Configuración que asigna un servidor DHCP
 
 *   **Dirección IP**
 *   **Máscara de Subred**
@@ -65,12 +65,12 @@ A la hora de determinar el tiempo de concesion es importante analizar el tipo de
 
 ## Tipos de Opciones
 
-A la hora de establecer las parametrs de configuracion que se enviaran a lso clientes, podemos establecer parametros a direntres niveles
+A la hora de establecer los parámetros de configuración que se enviaran a los clientes, podemos establecer parámetros a diferentes niveles
 
-*   **Opciones de Servidor** Se envian a todos los clientes del servidor DHCP
-*   **Opciones de Ámbito** Se envian a todos los lcientes del ambito y sobreescriben las opciones de servidor
-*   **Opciones de Clase** Se envian a los clientes de acuerdo a la clase de cliente a la que pertenecen
-*   **Opciones de Equipo** Se definen para un equipo concreto mediante una reserva. Esta opcion sobreescribe a cualquiera de las anteriores
+*   **Opciones de Servidor** Se envían a todos los clientes del servidor DHCP
+*   **Opciones de Ámbito** Se envían a todos los clientes del ámbito y sobreescriben las opciones de servidor
+*   **Opciones de Clase** Se envían a los clientes de acuerdo a la clase de cliente a la que pertenecen
+*   **Opciones de Equipo** Se definen para un equipo concreto mediante una reserva. Esta opción sobreescribe a cualquiera de las anteriores
 
 ## Protocolo DHCP
 
@@ -80,21 +80,70 @@ El formato de un mensaje DHCP es el que se muestra en la siguiente imagen:
 
 ![IMG](https://user-images.githubusercontent.com/67869168/199934317-2bac75ce-139e-4e45-a50c-d601efddb4f3.png)
 
+*   **op** Inicia se es la solicitud o la respuesta
+*   **htype** Tipo de Hardware
+*   **hlen** Longitud de la dirección hardware
+*   **hops** Saltos
+*   **xid** Identificador de la transacción para relacionar peticiones
+*   **secs** Tiempo en segundos desde que el cliente inicio el proceso
+*   **flogs** El bit más significativo de este campo, se utiliza como flag
+*   **ciaddr** IP Cliente
+*   **yiaddr** IP que ofrece el Servidor
+*   **siaddr** IP Servidor
+*   **giaddr** IP Agente de retransmision
+*   **chaddr** MAC Cliente
+*   **sname** Nombre del servicio DHCP
+*   **file** Nombre del fichero a descargar
+
+## Obtener una concesión
+
+El cliente DHCP difunde por broadcast un paquete `DHCPDISCOVER` para localizar un servidor `DHCP`
+
+### Oferta DHCP (DHCPOFFER)
+
+Los servidores responden a la petición, donde ofrecen una dirección IP al cliente, mascara de red, tiempo de concesión...
+
+### Solicitud DHCP (DHCPREQUEST)
+
+El cliente recibe una o más ofertas de servidor y elige la mejor, por norma general siempre suele elegir el primero que responda.
+
+### Reconocimiento DHCP (DHCPPACK)
+
+Si el mensaje `DHCPPACK` no contiene su dirección, el servidor considerara su oferta rechazada.
+
+El proceso es el siguiente:
+
+Si el mensaje contiene su dirección, envía un mensaje:
+
+*   `DHCPACK` -> Si la dirección IP aun está disponible
+*   `DHCPNAK` -> Si ya no está disponible no es válida
+
+Si el cliente recibe un `DHCPACK` puede usar la IP
+
+*   Si la IP es válida se inicializa con los datos suministrados
+*   Si encuentra un problema, envía un `DHCPDECLINE` al servidor y vuelve al paso 1 (`DHCPDISCOVER`)
+
+Si recibe el `DHCPNAK` libera la IP y vuelve al paso 1 (`DHCPDISCOVER`)
+
+![IMG](https://user-images.githubusercontent.com/67869168/200027356-ac6e4802-3acd-4e8c-bda9-0274032018f1.png)
+
+## Tipos de mensajes DHCP
+
+*   **DHCPDISCOVER** Mensaje de broadcast de un cliente para detectar un servidor DHCP
+*   **DHCPOFFER** Mensaje de un servidor a un cliente a modo de oferta de configuración
+*   **DHCPREQUEST** Mensaje encapsulado de una trama de difusión para:
+    *   **Aceptar / Confirmar / Extender** 
+*   **DHCPACK** Mensaje de un servidor a un cliente para enviarle la configuración
+*   **DHCPNAK** Mensaje de un servidor a un cliente para indicarle la dirección asignada es incorrecta
+*   **DHCPDECLIENTE** Mensaje de un servidor a un cliente para indicarle que hay un problema con la IP
+*   **DHCPREALSE** Mensaje de un cliente a un servidor para indicar que renuncia la dirección
+*   **DHCPINFORM** Mensaje de un cliente para pedir más información
+
+## Agentes de retransmisión DHCP
+
+Un agente de retransmisión es un equipo o enrutador configurado para escuchar difusiones DHCP procedentes de clientes DHCP, y a continuación retransmitir dichos mensajes a los servidores DHCP ubicados en distintas redes, existen dos tipos, los que están instalados en servidores y los que están instalados en los routers.
+
+![IMG](https://user-images.githubusercontent.com/67869168/200031433-96facbb4-4314-4681-8cf3-5e38d2ed03b0.png)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-[Instalación de un servicio DHCP en Ubuntu Server 22 LTS](/so/ubuntu-server/servicios/dhcp/teoria)
+[Instalación de un servicio DHCP en Ubuntu Server 22 LTS](/so/ubuntu-server/servicios/dhcp/instalacion)

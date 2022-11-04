@@ -193,8 +193,8 @@ Existen varias clases de piertos en fiuncion del uso que se hace de ellos:
 
 La correspondencia entre procesos y puertos se hace de dos formas distintas:
 
-*   **Asignacion Estatica** Los well known ports estan reservador para aplicaciones estanda y solo pueden ser empreados por estos procesos
-*   **Asignacion Dinamica** Cada proceso necesita un puerto y este no se asigna de forma estatica.
+*   **Asignación Estatica** Los well known ports estan reservador para aplicaciones estanda y solo pueden ser empreados por estos procesos
+*   **Asignación Dinamica** Cada proceso necesita un puerto y este no se asigna de forma estatica.
 
 ### Protocolo UDP
 
