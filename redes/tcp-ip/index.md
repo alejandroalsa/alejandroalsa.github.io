@@ -8,7 +8,7 @@ En este capítulo inicial se pretende ofrecer, necesariamente de una forma rápi
 
 Dado que se trata de un libro orientado fundamentalmente a cubrir las enseñanzas del módulo **“Servicios de Red e Internet”** perteneciente al segundo curso del Ciclo Formativo de Grado Superior **“Administración de Sistemas Informáticos y Redes”** 1, se presupone que el lector/alumno conoce en menor o mayor medida diversos temas relacionados con la estructura y funcionamiento interno de la arquitectura de comunicaciones TCP/IP, modelo cliente/servidor y en general, posee conocimientos suficientes para configurar y administrar cuanto menos una pequeña red de área local.
 
-Todo ello debería ser posible para el lector/alumno si ha cursado con anterioridad el módulo **“Planificación y Administración de Redes”** del primer curso del Ciclo Formativo mencionado anteriormente. Si esto es asi, este capítulo simplemente le servirá de recordatorio de lo ya aprendido y le concretará aquellos elementos que debe tener claros para el resto de los capítulos.
+Todo ello debería ser posible para el lector/alumno si ha cursado con anterioridad el módulo **“Planificación y Administración de Redes”** del primer curso del Ciclo Formativo mencionado anteriormente. Si esto es así, este capítulo simplemente le servirá de recordatorio de lo ya aprendido y le concretará aquellos elementos que debe tener claros para el resto de los capítulos.
 
 Si no se parte de esta base inicial, el lector deberá estudiar pausada y atentamente todo lo que en este capítulo se sintetiza con objeto de alcanzar las destrezas mínimas necesarias para entender lo que sigue.
 
@@ -44,7 +44,7 @@ el diálogo entre los sistemas. Así, por ejemplo, tenemos el protocolo IP en la
 Para la comunicación de aplicaciones a través de una red se emplean fundamentalmente tres
 paradigmas:
 
-*   **Cliente/Servidor**  En el se distingue entre un proceso cliente (que generalmente solicita servicios) y un proceso servidor (que presta el servicio al cliente).
+*   **Cliente/Servidor**  En él se distingue entre un proceso cliente (que generalmente solicita servicios) y un proceso servidor (que presta el servicio al cliente).
 
 *   **Entre Pares o P2P** Todos los nodos de la red son responsables por igual en la comunicación de las aplicaciones, y no existe un elemento que centralice la comunicación.
 
@@ -68,7 +68,7 @@ los utilizan:
 
 *   **Aplicaciones** Son los diferentes programas que se sirven de los protocolos de la arquitectura TCP/IP para comunicarse. Mozilla Thunderbird, Google Chrome...
 
-*   **Protocolos** Son normas concretas, descritas formalmente, que detallan c´omo se produce
+*   **Protocolos** Son normas concretas, descritas formalmente, que detallan cómo se produce
 la comunicación entre sistemas. IMAP, HTTP...
 
 Ejemplos:
@@ -153,17 +153,18 @@ El encaminamiento a nivel IP puede definirse como el proceso de llevar un datagr
 
 ### Encaminadores
 
-Los encaminadores o routers son dispositivos de nivel 3 que enlazan las diferentes redes que forman parte de una “red de redes“. Un router estar ́a conectado al menos a dos redes y realizar ́a el encaminamiento de todo el tráfico de datagramas que pase por  ́el
+Los encaminadores o routers son dispositivos de nivel 3 que enlazan las diferentes redes que forman parte de una “red de redes“. Un router estará conectado al menos a dos redes y realizará el encaminamiento de todo el tráfico de datagramas que pase por él.
 
 ![IMG](https://user-images.githubusercontent.com/67869168/199672941-a1ff0d05-0c04-4162-b46c-ae98a1990a46.png)
 
 ### Tablas de encaminamiento
 
-Las tablas de encaminamiento, almacenan la información necesaria para realizar el encaminamiento de los datagramas y est ́an implementadas tanto en los routers como en los hosts. Los campos m ́as importantes de los que consta son:
+Las tablas de encaminamiento, almacenan la información necesaria para realizar el encaminamiento de los datagramas y están implementadas tanto en los routers como en los hosts. Los campos más importantes de los que consta son:
 
-*   **Destino (D)** Dirección IP de una red o host.
+
+*   **Destino (D)** Dirección IP de una red u host.
 *   **Máscara de red (MR)** Determinar exactamente todas las direcciones IP que incluye.
-*   **Dirección de salto (DS)** Dirección IP a la que se enviar ́a el datagrama.
+*   **Dirección de salto (DS)** Dirección IP a la que se enviara el datagrama.
 *   **Interfaz** Dirección IP del encaminador por la que hay que enviar el datagrama.
 
 ![IMG](https://user-images.githubusercontent.com/67869168/199673941-12d503f1-bdad-4e7d-a60b-52f36112607a.png)
@@ -175,7 +176,7 @@ Las tablas de encaminamiento, almacenan la información necesaria para realizar 
 
 ## Capa de transporte en TCP/IP - Protocolos TCP y UDP.
 
-Hasta ahora, hemos visto que el protocolo IP nos permite comunicar dos máquinas remotas haciendo que los datagramas puedan ir del origen al destino, pero al disponer únicamente de las direcciones IP de origen y destino como mecanismo de diferenciación en la comunicación, se plantea el problema de que no nos permite, por ejemplo, mantener varias comunicaciones simultáneas entre los dos mismos equipos, ya que a nivel IP no podrı́amos diferenciar los datagramas pertenecientes a unas u otras.
+Hasta ahora, hemos visto que el protocolo IP nos permite comunicar dos máquinas remotas haciendo que los datagramas puedan ir del origen al destino, pero al disponer únicamente de las direcciones IP de origen y destino como mecanismo de diferenciación en la comunicación, se plantea el problema de que no nos permite, por ejemplo, mantener varias comunicaciones simultáneas entre los dos mismos equipos, ya que a nivel IP no podríamos diferenciar los datagramas pertenecientes a unas u otras.
 
 El nivel de transporte nos provee de elementos para diferenciar y gestionar, de forma
 simultánea, múltiples orı́genes y destinos en una comunicación y múltiples comunicaciones en cada
@@ -183,9 +184,9 @@ equipo.
 
 ### Puertos de comunicaciones
 
-Cada proceso del nivel de apliacacion tiene asociado uno o varios peirtos a terabes de los ciales es acccesoble. CAda pierto se indentiifca por un numero binario de 16 bits, 2^16 -1 = 65535.
+Cada proceso del nivel de aplicación tiene asociado uno o varios puertos a trabes de los cuales es accesible. Cada puerto se identifica por un número binario de 16 bits, 2^16 -1 = 65535.
 
-Existen varias clases de piertos en fiuncion del uso que se hace de ellos:
+Existen varias clases de puertos en función del uso que se hace de ellos:
 
 *   **0 - 1023** Se conocen como well known ports y están reservados para aplicaciones y servicios estándar como HTTP, FTP
 *   **1024 - 49151** Para aplicaciones no estándar instaladas por el usuario que no tienen un puerto well known preasignado.
@@ -193,22 +194,22 @@ Existen varias clases de piertos en fiuncion del uso que se hace de ellos:
 
 La correspondencia entre procesos y puertos se hace de dos formas distintas:
 
-*   **Asignación Estatica** Los well known ports estan reservador para aplicaciones estanda y solo pueden ser empreados por estos procesos
-*   **Asignación Dinamica** Cada proceso necesita un puerto y este no se asigna de forma estatica.
+*   **Asignación Estática** Los well known ports están reservados para aplicaciones estándar y solo pueden ser empleados por estos procesos
+*   **Asignación Dinámica** Cada proceso necesita un puerto y este no se asigna de forma estática.
 
 ### Protocolo UDP
 
-El protocolo UDP (User Datagram Protocol) proporciona un servicio no orientadi a conexion, sin establecimiento de conexion previo a la transmision, son control de flujo.
+El protocolo UDP (User Datagram Protocol) proporciona un servicio no orientado a conexión, sin establecimiento de conexión previo a la transmisión, son control de flujo.
 
-Al tratarse de un protocolo muy basico y con poca seguridad se suele aplicar a conexiones en las que prevalice mas la velocidad que la fiabilidad
+Al tratarse de un protocolo muy básico y con poca seguridad, se suele aplicar a conexiones en las que prevalece más la velocidad que la fiabilidad
 
 ### Protocolo TCP
 
-El protocolo TCP (Transmission Control Protocol) proporciona un servicio orientado a conexion con lo que existen diferencias respecto a UDP TCP, obliga a un establecimiento previo de un a conexion y a un control en el flujo de la comunicaicon, por lo que prevalece la fiabilidad y no la velocidad.
+El protocolo TCP (Transmission Control Protocol) proporciona un servicio orientado a conexión con lo que existen diferencias respecto a UDP TCP, obliga a un establecimiento previo de un a conexión y a un control en el flujo de la comunicación, por lo que prevalece la fiabilidad y no la velocidad.
 
 ### Conexiones TCP
 
-La conexión TCP se define de forma única por los datos relativos a los puntos extremos de la comunicación, es decir, por estos cuatro elementos: (Dirección IP origen, Puerto TCP origen) ) (Dirección IP destino, Puerto TCP destino). No puede haber dos conexiones TCP que tengan en común estos cuatro elementos.
+La conexión TCP se define de forma única por los datos relativos a los puntos extremos de la comunicación, es decir, por estos cuatro elementos: (Dirección IP origen, Puerto TCP origen) (Dirección IP destino, Puerto TCP destino). No puede haber dos conexiones TCP que tengan en común estos cuatro elementos.
 
 ## Traducción de direcciones de red - NAT.
 
@@ -222,7 +223,7 @@ La técnica más destacada en este sentido es la traducción de direcciones de r
 
 Para que el sistema NAT funcione es necesario que el encaminador que da acceso a Internet reescriba algunos datos en los datagramas que encamina. En función de la información que se modifique tenemos varios tipos de NAT:
 
-*   **NAT básico** Unicamente se modifica la dirección IP (NAT a nivel de red).
+*   **NAT básico** Únicamente se modifica la dirección IP (NAT a nivel de red).
 *   **NAPT (Network Address Port Translation) / PAT (Port Address Translation)** Además de la dirección IP también se modifican los puertos empleados en la comunicación a nivel de transporte.
 
 Se modifica la dirección IP de origen y el puerto de origen en el tráfico saliente de la red privada.
@@ -231,7 +232,7 @@ Se modifica la dirección IP de destino y el puerto de destino en el tráfico en
 
 ### Tráfico saliente
 
-La idea fundamental aquı́ es que el encaminador que hace NAT sustituya la dirección IP de origen, privada, por la dirección IP pública del encaminador NAT, de forma que cuando el datagrama llegue a su destino parezca que el origen del mismo es el propio encaminador NAT.
+La idea fundamental aquí es que el encaminador que hace NAT sustituya la dirección IP de origen, privada, por la dirección IP pública del encaminador NAT, de forma que cuando el datagrama llegue a su destino parezca que el origen del mismo es el propio encaminador NAT.
 
 ### Respuesta al tráfico saliente
 

@@ -1,8 +1,8 @@
 ---
-page.title: "Teoria de un DHCP"
+page.title: "Teoría de un DHCP"
 ---
 
-# Teoria de un DHCP
+# Teoría de un DHCP
 
 DHCP es un protocolo de capa de aplicación diseñado para implementar un servicio de configuración automática de red en redes TCP/IP.
 
@@ -20,13 +20,13 @@ La función principal de DHCP es permitir a los equipos de una red obtener sus p
 
 ## Tipos de asignación
 
-Existen tres tipos de asignaciónes de configuración:
+Existen tres tipos de asignaciones de configuración:
 
 *   **Asignación Estática (Reserva)** Asigna direcciones IP concretas a equipos concretos.
 
 *   **Asignación dinámica** Se define un rango de asignación de direcciones IP (10.10.10.100 - 10.10.10.200)
 
-*   **Asignación Automática** Es igual que la asignación dinámica, la única diferencia es que en las asignaciónes automáticas el plazo de concesión es ilimitado
+*   **Asignación Automática** Es igual que la asignación dinámica, la única diferencia es que en las asignaciones automáticas el plazo de concesión es ilimitado
 
 ## Ámbito
 
@@ -90,7 +90,7 @@ El formato de un mensaje DHCP es el que se muestra en la siguiente imagen:
 *   **ciaddr** IP Cliente
 *   **yiaddr** IP que ofrece el Servidor
 *   **siaddr** IP Servidor
-*   **giaddr** IP Agente de retransmision
+*   **giaddr** IP Agente de retransmisión
 *   **chaddr** MAC Cliente
 *   **sname** Nombre del servicio DHCP
 *   **file** Nombre del fichero a descargar
@@ -109,13 +109,13 @@ El cliente recibe una o más ofertas de servidor y elige la mejor, por norma gen
 
 ### Reconocimiento DHCP (DHCPPACK)
 
-Si el mensaje `DHCPPACK` no contiene su dirección, el servidor considerara su oferta rechazada.
+Si el mensaje `DHCPPACK` no contiene su dirección, el servidor considerará su oferta rechazada.
 
 El proceso es el siguiente:
 
 Si el mensaje contiene su dirección, envía un mensaje:
 
-*   `DHCPACK` -> Si la dirección IP aun está disponible
+*   `DHCPACK` -> Si la dirección IP aún está disponible
 *   `DHCPNAK` -> Si ya no está disponible no es válida
 
 Si el cliente recibe un `DHCPACK` puede usar la IP
