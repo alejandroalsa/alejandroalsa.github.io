@@ -4,13 +4,13 @@ page.title: "Instalación de un Servicio de DHCP en Ubuntu Server 22 LTS"
 
 # Instalación de un Servicio de DHCP en Ubuntu Server 22 LTS
 
-Intalacion del Servidor DHCP
+Instalación del Servidor DHCP
 
 ```bash
 sudo apt-get install isc-dhcp-server -y
 ```
 
-Asiganmos una tarjeta de red al Servidor DHCP
+Asignamos una tarjeta de red al Servidor DHCP
 
 ```bash
 sudo nano /etc/default/isc-dhcp-server
@@ -36,9 +36,9 @@ sudo nano /etc/default/isc-dhcp-server
 INTERFACESv4="enp0s8"
 INTERFACESv6=""
 ```
-Antes de relizar este paso es importante tener configurada una dirección IP Fija en dicha interfaz de red.
+Antes de realizar este paso es importante tener configurada una dirección IP Fija en dicha interfaz de red.
 
-## Configuracion Basica 
+## Configuración Básica 
 
 Editamos el fichero `dhcpd.conf`
 
@@ -66,7 +66,7 @@ subnet ###.###.###.### netmask ###.###.###.### {
 }
 ```
 
-## Configuracion de IP reservada
+## Configuración de IP reservada
 
 ```
 host Equipo_01 {
@@ -80,7 +80,7 @@ host Equipo_01 {
 }
 ```
 
-## Configuracion de IPs a subredes
+## Configuración de IPs a subredes
 
 ```
 subnet ###.###.###.### netmask ###.###.###.### {
@@ -95,15 +95,15 @@ subnet ###.###.###.### netmask ###.###.###.### {
 ## Opciones principales
 
 *   **hardware ethernet** Direcion MAC
-*   **fixed-address** Direccion IP
-*   **range** Rango de asignacion de direcciones IP
-*   **range dynamic-bootp** Rango de asignacion de direcciones IP para subredes
+*   **fixed-address** Dirección IP
+*   **range** Rango de asignación de direcciones IP
+*   **range dynamic-bootp** Rango de asignación de direcciones IP para subredes
 *   **option domain-name-servers** Servidores DNS
-*   **option broadcast-address** Direccion de Broadcast
+*   **option broadcast-address** Dirección de Broadcast
 *   **option subnet-mask** Mascara de Subred
 *   **option routers** IP del router
-*   **default-lease-time** Tiempo de asignacion predeterminado
-*   **max-lease-time** Tiempo maximo de asignacion
+*   **default-lease-time** Tiempo de asignación predeterminado
+*   **max-lease-time** Tiempo máximo de asignación
 
 ## Aplicamos los cambios
 
@@ -112,7 +112,7 @@ Reiniciamos el servidor
 sudo systemctl reload isc-dhcp-server.service
 ```
 
-Comprovamos que todo este bien.
+Comprobamos que todo esté bien.
 ```bash
 sudo systemctl status isc-dhcp-server.service
 ```
