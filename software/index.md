@@ -3,6 +3,8 @@ page.title: "Software"
 description: "Recopilación de software orientado a la administración de sistemas y al desarrollo web, se incluyen guías, tutoriales y cursos."
 ---
 
+# Software
+
 # Git
 
 >  Proximamente
