@@ -33,14 +33,12 @@ Curso y recursos a cerca de JavaScript lenguaje de programación interpretado, d
 
 [Ver más -->](js).
 
+# Software
+>  Nov 07, 2022 
 
-# News
->  Sept 04, 2022 
+Recopilación de software orientado a la administración de sistemas y al desarrollo web, se incluyen guías, tutoriales y cursos.
 
-Sección de noticias relacionadas con la informatica y la tecnología en todo el mundo.
-
-[Ver más -->](news).
-
+[Ver más -->](software).
 
 # Optimización
 >  Sept 04, 2022 

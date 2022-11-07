@@ -76,10 +76,7 @@ Existen varios tipos de acceso al bus por parte del controlador **DMA**
 *   **Dato a Dato** Cada vez que un dispositivo solicita una transferencia, se envía un dato.
 
 
-Siguiente Tema [Gestión de Archivos y Dispositivos](../gestion-archivos_dispositivos)
-
-Anterior Tema [Gestión de Memoria](../gestion-memoria)
-
+https://blog.alejandroalsa.es
 
 
 
