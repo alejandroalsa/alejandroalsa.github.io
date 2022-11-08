@@ -7,8 +7,8 @@ page.title: "Docker"
 >  8 Nov 2022
 
 *   **Teoría** [✅](#teoría)   
-*   **Instalación** [❌](#teoria)
-*   **Comandos de Imagenes** [❌](#teoria)
+*   **Instalación** [✅](#instalación)
+*   **Comandos de Imágenes** [✅](#comandos-de-imágenes)
 *   **Comandos de Contenedores** [❌](#teoria)
 *   **Conectar Contendores** [❌](#teoria)
 *   **Docker Compose** [❌](#teoria)
@@ -24,6 +24,8 @@ Un contenedor es de alguna forma la posibilidad de poder empaquetar nuestras apl
 Podemos decir que nosotros queremos comenzar un proyecto, lo primero que realizaremos será generar un empaquetado donde incluiremos, por ejemplo en el caso de una APP Web, el contenido HTML, Node.js, Python, Ruby..., también se podría configurar un archivo .env donde estarán nuestras variables de entorno.
 
 Al estar todo empaquetado no da la ventaja de ser portable y fácil de compartir entre los desarrolladores, haciendo que se despliegue será muy fácil.
+
+![IMG](https://www.servidoresadmin.com/wp-content/uploads/2020/06/docker_containers.jpg)
 
 ### ¿Dónde se almacenan nuestros contenedores?
 
@@ -67,9 +69,11 @@ Cuando trabajamos con Máquinas virtuales lo que estamos virtualizando es el Ker
 
 A la hora de comunicar la aplicación con el kernel o el kernel con el hardware, Docker utilizará el Kernel del S.O base, por lo que Docker mucho más rendimiento.
 
+![IMG](https://ikastaroak.birt.eus/edu/argitalpen/backupa/20200331/1920k/es/DAW/DEAW/DEAW01/es_DAW_DEAW01_Contenidos/virtualizacion-vs-contenedores.png)
+
 ## Instalación
 
-### Instalacion en Linux
+### Instalación en Linux
 
 Desinstalar versiones antiguas
 
@@ -90,11 +94,12 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 ```
 
 Agregamos el repositorio de Docker
+
 ```bash
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
 ```
 
-Asegúrarse de que está a punto de instalar desde el repositorio de Docker en lugar del repositorio predeterminado de Ubuntu
+Asegurarse de que está a punto de instalar desde el repositorio de Docker en lugar del repositorio predeterminado de Ubuntu
 
 ```bash
 apt-cache policy docker-ce
@@ -115,15 +120,15 @@ Instalamos Docker
 sudo apt install docker-ce
 ```
 
-Comprobamos que todo este bien
+Comprobamos que todo esté bien
 
 ```bash
 sudo systemctl status docker
 ```
 
-#### Confiugurar Docker sin `sudo`
+#### Configurar Docker sin *sudo*
 
-De forma predeterminada, el comando docker solo puede ejecutarlo el usuario raíz o un usuario del grupo docker, que se crea automáticamente durante el proceso de instalación de Docker. Si intentamos ejecutar el comando  docker sin prefijarlo sudo o sin estar en el grupo docker , obtendremos un resultado como este:
+De forma predeterminada, el comando Docker solo puede ejecutarlo el usuario raíz o un usuario del grupo Docker, que se crea automáticamente durante el proceso de instalación de Docker. Si intentamos ejecutar el comando  Docker sin prefijo sudo o sin estar en el grupo Docker, obtendremos un resultado como este:
 
 ```
 Output
@@ -137,13 +142,13 @@ Agregamos nuestro usuario al grupo Docker
 sudo usermod -aG docker usuario
 ```
 
-Para aplicar la nueva pertenencia al grupo, cerramios sesión en el equipo y vuelvemos a iniciarl, o escribimos lo siguiente
+Para aplicar la nueva pertenencia al grupo, cerramos sesión en el equipo y volvemos a iniciar, o escribimos lo siguiente
 
 ```bash
 su - usuario
 ```
 
-Confirmamos que nuestro usuario ahora está agregado al grupo docker
+Confirmamos que nuestro usuario ahora está agregado al grupo Docker
 
 ```bash
 groups
@@ -151,17 +156,105 @@ groups
 
 ```
 Output
-sammy sudo docker
+usuario sudo docker
 ```
 
-Por ultmo ejecutaremos un `Hola Mundo`
+Por último ejecutaremos un `Hola Mundo`
 
 ```
 docker run hello-world
 ```
 
+## Comandos Imágenes
 
-## Comandos Imagenes
+Para poder ver las imágenes que tenemos en nuestro equipo ejecutaremos el comando `docker iamges`
+
+```bash
+docker images
+```
+
+Esto nos devolvera la siguiente respuesta
+
+```
+REPOSITORY    TAG       IMAGE ID       CREATED         SIZE
+hello-world   latest    feb5d9fea6a5   13 months ago   13.3kB
+```
+
+En la respuesta podemos observar 5 características
+
+*   **REPOSITORY** Nombre de la imagen que descargamos
+*   **TAG** Versión de la imagen que descargamos
+*   **IMAGE ID** Identificador de la imagen que descargamos
+*   **CREATED** Fecha de la descarga
+*   **SIZE** Espacio que esta nos ocupa
+
+Como podemos observar en el apartado de `TAG` nos devuelve `latest (más reciente)` esto quiere indicar que en el momento en el que nos descargamos la imagen descargamos la última versión.
+
+Esto sucede cuando al descargarnos una imagen no especificamos su versión.
+
+Para descargarnos una imagen ejecutaremos el siguiente comando
+
+```bash
+docker pull nombredelaimagen
+```
+
+A la hora de descargar la imagen podemos ver una característica muy importante, en el apartado de teoría dijimos que las imágenes se formaban por capas, estas capas las podemos ver a la hora de descargar una imagen.
+
+```
+Using default tag: latest
+latest: Pulling from library/node
+17c9e6141fdb: Pull complete   <------------Capa------------>
+de4a4c6caea8: Pull complete   <------------Capa------------>
+4edced8587e6: Pull complete   <------------Capa------------>
+a7969cffbf46: Pull complete   <------------Capa------------>
+74fbfde6af91: Pull complete   <------------Capa------------>
+babbacf2d498: Pull complete   <------------Capa------------>
+f699dd37397d: Pull complete   <------------Capa------------>
+fd7dfbd90f0f: Pull complete   <------------Capa------------>
+8ac4f8741145: Pull complete   <------------Capa------------>
+Digest: sha256:9006c62d58649d5db18bbe00c2c73a2cfaf56d63fa56200b141203736123f9a4
+Status: Downloaded newer image for node:latest
+docker.io/library/node:latest
+```
+En este caso descargamos la imagen de `node` sin especificar la versión por lo que si hacemos un `docker images` veremos que en `TAG` pondra `latest`.
+
+```
+REPOSITORY    TAG       IMAGE ID       CREATED         SIZE
+node          latest    0a852a6111fc   2 weeks ago     994MB
+hello-world   latest    feb5d9fea6a5   13 months ago   13.3kB
+```
+
+En el caso de que queremos especificar una versión a descargar, bastara con indicárselo de la siguiente forma
+
+```bash
+docker pull node:18
+```
+
+```
+REPOSITORY    TAG       IMAGE ID       CREATED         SIZE
+node          18        b952e6a232d0   12 days ago     991MB
+node          latest    0a852a6111fc   2 weeks ago     994MB
+hello-world   latest    feb5d9fea6a5   13 months ago   13.3kB
+```
+
+En el caso de que queremos descargar otras imágenes podemos y a la web de [DockerHub](https://hub.docker.com/) y descargar la imagen que queramos.
+
+También podemos eliminar imágenes descargadas
+
+```bash
+docker image rm node
+```
+
+En el caso de que tengamos que indicar la versión, se realizaría de la misma forma.
+
+```bash
+docker image rm node:18
+```
+
+```
+REPOSITORY    TAG       IMAGE ID       CREATED         SIZE
+hello-world   latest    feb5d9fea6a5   13 months ago   13.3kB
+```
 
 ## Comandos Contendores
 
