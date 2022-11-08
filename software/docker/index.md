@@ -69,6 +69,98 @@ A la hora de comunicar la aplicación con el kernel o el kernel con el hardware,
 
 ## Instalación
 
+### Instalacion en Linux
+
+Desinstalar versiones antiguas
+
+```bash
+sudo apt-get remove docker docker-engine docker.io containerd runc
+```
+
+Instalar los paquetes para poder descargar desde HTTPS
+
+```bash
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+```
+
+Agregamos la clave GPG oficial de Docker
+
+```bash
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+```
+
+Agregamos el repositorio de Docker
+```bash
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+```
+
+Asegúrarse de que está a punto de instalar desde el repositorio de Docker en lugar del repositorio predeterminado de Ubuntu
+
+```bash
+apt-cache policy docker-ce
+```
+
+```
+docker-ce:
+  Installed: (none)
+  Candidate: 5:19.03.9~3-0~ubuntu-focal
+  Version table:
+     5:19.03.9~3-0~ubuntu-focal 500
+        500 https://download.docker.com/linux/ubuntu focal/stable amd64 Packages
+```
+
+Instalamos Docker
+
+```bash
+sudo apt install docker-ce
+```
+
+Comprobamos que todo este bien
+
+```bash
+sudo systemctl status docker
+```
+
+#### Confiugurar Docker sin `sudo`
+
+De forma predeterminada, el comando docker solo puede ejecutarlo el usuario raíz o un usuario del grupo docker, que se crea automáticamente durante el proceso de instalación de Docker. Si intentamos ejecutar el comando  docker sin prefijarlo sudo o sin estar en el grupo docker , obtendremos un resultado como este:
+
+```
+Output
+docker: Cannot connect to the Docker daemon. Is the docker daemon running on this host?.
+See 'docker run --help'.
+```
+
+Agregamos nuestro usuario al grupo Docker
+
+```bash
+sudo usermod -aG docker usuario
+```
+
+Para aplicar la nueva pertenencia al grupo, cerramios sesión en el equipo y vuelvemos a iniciarl, o escribimos lo siguiente
+
+```bash
+su - usuario
+```
+
+Confirmamos que nuestro usuario ahora está agregado al grupo docker
+
+```bash
+groups
+```
+
+```
+Output
+sammy sudo docker
+```
+
+Por ultmo ejecutaremos un `Hola Mundo`
+
+```
+docker run hello-world
+```
+
+
 ## Comandos Imagenes
 
 ## Comandos Contendores
