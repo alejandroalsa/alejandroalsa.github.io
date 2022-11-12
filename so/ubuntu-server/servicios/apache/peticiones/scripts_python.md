@@ -15,7 +15,7 @@ Instalamos el módulo de apache2 que nos permite ejecutar código python: `libap
 Veamos un ejemplo de configuración para una aplicación django. Suponemos que el fichero wsgi se encuentra en el directorio: `/var/www/html/mysite/mysite/wsgi.py` y configuramos apache2 de la siguiente manera:
 
 ```conf
-<VirtualHost *>
+<VirtualHost *:80>
     ServerName www.example.com
     DocumentRoot /var/www/html/mysite
     WSGIDaemonProcess mysite user=www-data group=www-data processes=1 threads=5 python-path=/var/www/html/mysite
@@ -131,4 +131,4 @@ Y creamos el fichero de configuración para el servidor virtual que servirá a a
 </VirtualHost>
 ```
 
-[Siguiente Tema](/so/ubuntu-server/servicios/apache/seguridad/https.md)
+[Siguiente Tema](/so/ubuntu-server/servicios/apache/seguridad/certificado_cacert)

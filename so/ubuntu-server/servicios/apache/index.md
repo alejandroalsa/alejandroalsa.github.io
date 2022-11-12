@@ -57,6 +57,9 @@ En este post veremos todos los contenidos acerca del servidor web Apache 2.4 tra
 
 *   [Certificado en CAcert](/so/ubuntu-server/servicios/apache/seguridad/certificado_cacert)
 *   [HTTPS](/so/ubuntu-server/servicios/apache/seguridad/https)
+*   [ModSecurity](/so/ubuntu-server/servicios/apache/seguridad/modSecurity)
+*   [Opciones de Seguridad](/so/ubuntu-server/servicios/apache/seguridad/opciones_seguridad)
+
 
 ## Otros temas
 
