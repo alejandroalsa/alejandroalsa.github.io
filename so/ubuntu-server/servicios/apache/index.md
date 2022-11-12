@@ -6,7 +6,7 @@ page.title: "Servidor web Apache 2.4"
 
 Servidor web Apache 2.4
 
-> Actualizado al 15 oct 2022
+> Actualizado al 12 nov 2022
 
 En este post veremos todos los contenidos acerca del servidor web Apache 2.4 tratando los siguientes temas:
 
@@ -66,3 +66,9 @@ En este post veremos todos los contenidos acerca del servidor web Apache 2.4 tra
 *   [Proxy Inverso](/so/ubuntu-server/servicios/apache/otros/proxy_inverso)
 *   [Logs AWStats](/so/ubuntu-server/servicios/apache/otros/logs_awstats)
 *   [Scripts](/so/ubuntu-server/servicios/apache/otros/scripts)
+
+## Certificado
+
+*   [Certificado](/so/ubuntu-server/servicios/apache/certificado/Certificado%20Servidor%20Web%20Apache%20Alejandro%20Alfaro%20Sanchez.pdf)
+
+> Alejandro Alfaro Sánchez
