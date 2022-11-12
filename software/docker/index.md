@@ -9,11 +9,11 @@ page.title: "Docker"
 *   **Teoría** [✅](#teoría)   
 *   **Instalación** [✅](#instalación)
 *   **Comandos de Imágenes** [✅](#comandos-de-imágenes)
-*   **Comandos de Contenedores** [❌](#teoria)
-*   **Conectar Contendores** [❌](#teoria)
-*   **Docker Compose** [❌](#teoria)
-*   **Volumenes** [❌](#teoria)
-*   **Ambientes hot y reload** [❌](#teoria)
+*   **Comandos de Contenedores** [🟥](#teoria)
+*   **Conectar Contendores** [🟥](#teoria)
+*   **Docker Compose** [🟥](#teoria)
+*   **Volumenes** [🟥](#teoria)
+*   **Ambientes hot y reload** [🟥](#teoria)
 
 ## Teoría   
 
