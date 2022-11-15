@@ -97,3 +97,5 @@ No podemos confundir un SAI (Sistema de Alimentacion Ininterrumpido) de un PDU (
 *   **Analisis de datos** Se realiza un obtecion de datos e informes esenciales para la investigacion
 *   **Analissi he investigacion** Se realiza un estudio con los datos adquiridos
 *   **Realizacion del informe** Elaboracion de un informe con los datos obtenidos
+
+[PDF](introduccion_seguridad.pdf)
