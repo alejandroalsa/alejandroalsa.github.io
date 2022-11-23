@@ -37,6 +37,14 @@ Ansible es una plataforma de software libre para configurar y administrar ordena
 
 [Ver más -->](/software/ansible/).
 
+# Asterisk
+
+>  23 Nov 2022
+
+Asterisk es un programa de software libre que proporciona funcionalidades de una central telefónica.
+
+[Ver más -->](/software/asterisk/).
+
 # Docker
 
 >  8 Nov 2022
