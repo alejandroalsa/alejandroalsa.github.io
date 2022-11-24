@@ -14,7 +14,8 @@ En este curso aprenderemos HTML, el lenguaje de marcado de hipertexto más impor
 
 # SAD
 
-*   [Servidor DNS Windows](/asir/sad/firma-digital). 
+*   [Servidor DNS Windows](/asir/sad/firma-digital).
+*   [Certificado digital](/asir/sad/certificado-digitad). 
 
 # ASO
 
