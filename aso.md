@@ -2,8 +2,8 @@
 
 * **Tipos de Sistemas Operativos** [Ir](#tipos-de-sistemas-operativos)
 * **Funciones de un Sistema Operativo** [Ir](#funciones-de-un-sistema-operativo)
-* **Gestión de Memoria** [Ir](gestión-de-memoria)
-* **Gestión de Procesos** [Ir](gestión-de-procesos)
+* **Gestión de Memoria** [Ir](#gestión-de-memoria)
+* **Gestión de Procesos** [Ir](#gestión-de-procesos)
 * **Gestión de Entrada / Salida** [Ir](#gestión-de-entrada-salida)
 * **Gestión de Almacenamiento** [Ir](#gestión-de-almacenamiento)
 
