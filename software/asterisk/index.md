@@ -502,7 +502,7 @@ Despues ya podremos empeazar a utlizar la herramienta y relizar la primera llama
 ## Descarga
 
 ```
-git clone https://github.com/LLALEX-ESP/Servidor-VoIP.git
+git clone https://github.com/alejandroalsa/Servidor-VoIP.git
 ``` 
 
 

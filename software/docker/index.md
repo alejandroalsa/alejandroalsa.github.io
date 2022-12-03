@@ -10,10 +10,10 @@ page.title: "Docker"
 *   **Instalación** [✅](#instalación)
 *   **Comandos de Imágenes** [✅](#comandos-de-imágenes)
 *   **Comandos de Contenedores** [✅](#comandos-de-contenedores)
-*   **Conectarse con Contendores** [🟥](#conectarse-con-contenedores)
-*   **Docker Compose** [🟥](#teoria)
-*   **Volumenes** [🟥](#teoria)
-*   **Ambientes hot y reload** [🟥](#teoria)
+*   **Conectarse con Contendores** [✅](#conectarse-con-contenedores)
+*   **Docker Compose** [🟥](#docker-compose)
+*   **Volumenes** [🟥](#volumenes)
+*   **Ambientes hot y reload** [🟥](#ambientes_hot_y_reload)
 
 ## Teoría   
 
@@ -400,10 +400,169 @@ En este comando estamos englobando todas las opciones anteriormente indicadas, l
 
 ## Conectarse con Contendores
 
+Veamos el siguiente código
+
+```js
+import express from 'express'
+import mongoose from 'mongoose'
+
+const Animal = mongoose.model('Animal', new mongoose.Schema({
+  tipo: String,
+  estado: String,
+}))
+
+const app = express()
+
+mongoose.connect('mongodb://alejandroalsa:alejandroalsa@localhost:27017/miapp?authSource=admin')
+
+app.get('/', async (_req, res) => {
+  console.log('listando... alejandroalsas...')
+  const animales = await Animal.find();
+  return res.send(animales)
+})
+app.get('/crear', async (_req, res) => {
+  console.log('creando...')
+  await Animal.create({ tipo: 'Alejandroalsas', estado: 'Online' })
+  return res.send('ok')
+})
+
+app.listen(3000, () => console.log('listening...'))
+```
+
+### Despliege y conexion de una APP
+
+Aquí podemos ver una pequeña aplicación que está construida en `JS` desarrollada por `Nicolas Schurmann` [Repo-GitHub](https://github.com/nschurmann/mongoapp-curso-docker/blob/main/index.js), podemos observar como la app tiene como dependencias `express` y `mongoose`.
+
+Después se define un modelo que contiene como atributos tipo `String` y como estado también `String`.
+
+Se creará la APP y le indicamos a `mongoose` que se tiene que conectar a este servidor de Base de Datos: `mongodb://nico:password@monguito:27017/miapp?authSource=admin`, en este "enlace" se define un usuario `alejandroalsa` con contraseña `alejandroalsa` máquina a la que conectarse y su puerto `localhost:27017`, base de datos `miapp` y por último un parámetro de configuración indicando que me conecto como un usuario administrador `authSource=admin`.
+
+La aplicación tiene dos rutas `/` & `/crear`, la primera será la raíz que buscara todos los animales que hay en la base de datos y los enviara, luego se creara un animal de tipo `Chanchito` y su estado sera de tipo `Feliz` y por último nos devolverá un sting de OK.
+
+El objetivo de esto es que la APP se pueda conectar con una instancia de Mongo que esté corriendo en un contenedor, de manera que nosotros no tengamos que descargar mongo.
+
+Lo primero que tendremos que hacer es dirigirnos a [Docker Hub](https://hub.docker.com/) y buscar `mongo`, la razón de esto es que necesitamos configurar algunos parámetros de configuración para cuando estemos creando el contenedor para poder hacer al contenedor con un usuario y contraseña.
+
+Si navegamos por la página podemos ver los parámetros de configuración que necesita este contenedor para su correcto funcionamiento, en nuestro caso necesitaremos las siguientes variables de entorno `MONGO_INITDB_ROOT_USERNAME` `MONGO_INITDB_ROOT_PASSWORD`.
+
+A continuación crearemos el contenedor de `mongo` para que nos podamos conectar a él, esto lo realizaremos con el siguiente comando.
+
+```
+docker create -p27017:27017 --name Contenedor_Mongo -e MONGO_INITDB_ROOT_USERNAME=alejandroalsa -e MONGO_INITDB_ROOT_PASSWORD=alejandroalsa mongo
+```
+
+Podemos observar como ahora en el comando hemos añadido nuevas entradas `-e` para identificar una variable de entorno que en nuestro caso será el usuario y la contraseña.
+
+Con estos pasosos ya tendremos el contenedor listo, para poder empezar a utilizar la APP primero tendremos que tener instalado `nodejs` y `npm`
+
+```bash
+sudo apt install nodejs -y
+```
+```bash
+sudo apt install npm -y
+```
+
+También tendremos que descargar el módulo de `express`
+
+```bash
+npm install express
+```
+
+Ejecutaremos la aplicación
+
+```
+node index.js
+```
+
+Podremos acceder en [localhost:3000](localhost:3000), podremos observar que nos devuelve un arreglo completamente vacíos `[]`, crearemos un recurso en [localhost:3000/crear](localhost:3000/crear) y si volvemos a [localhost:3000](localhost:3000) observaremos con el arreglo ya no está vacío `[{"_id":"638b86b193ca47e327da40ea","tipo":"Alejandroalsa","estado":"Online","__v":0}]`.
+
+De esta manera es como podemos crear un contenedor de mongo y conectar nuestras APPs de forma exitosa.
+
+### Crear una aplicación e introducirla dentro de un contenedor
+
+Nosotros también tenemos la posibilidad de crear nuestros propios contenedores con base en nuestras APPs para ello realizaremos los siguientes pasos, en el archivo de nuestro proyecto crearemos un archivo llamado `Dockerfile`, no puede tener otro nombre, se tiene que llamar así `Dockerfile`.
+
+En este archivo escribiremos las líneas de configuración para poder crear nuestro contenedor, en nuestro caso añadiremos las siguientes líneas
+
+```dockerfile
+FROM node:18
+
+RUN mkdir -p /home/app
+
+COPY . /home/app
+
+EXPOSE 3100
+
+CMD ["node", "/home/app/index.js"]
+```
+
+*   **FROM** Indicamos que nuestra imagen se base en `node:18`
+*   **RUN** Directorio donde estará nuestro código fuente, **esta es una ruta dentro de nuestro contenedor**
+*   **COPY** Indicamos de donde obtendrá el código fuente
+*   **EXPOSE** Puerto en el que se ejecutara nuestro proyecto
+*   **CMD** Comando para correr la app
+
+El siguiente paso será agrupar los contenedores para que se puedan comunicar, así nuestra app en `NodeJS` se podrá comunicar con `Mongo`, para poder realizar esto tendremos que crear una red.
+
+```
+docker network ls
+```
+
+Con este comando podremos ver todas las redes que están creadas en Docker
+
+Para crear nuestra propia red ejecutaremos
+
+```
+docker network create red_alejandroalsa
+```
+
+Del mismo modo que con las imágenes y contenedores podemos eliminar una red con el comando
+
+```
+docker network rm red_alejandroalsa
+```
+
+La forma que tienen los contenedores para poder comunicarse entre sí cuando estos se encuentra dentro de una misma red interna de Docker es mediante el nombre del contenedor, esto quiere decir que el nombre de dominio del contenedor va a ser el mismo que el nombre que nosotros le asignemos cuando creamos el contenedor.
+
+Tendremos que editar en nuestro `index.js` la línea en la que nos conectamos al servidor y escribir el nombre del contenedor que crearemos.
+
+```js
+mongoose.connect('mongodb://alejandroalsa:alejandroalsa@appalejandroalsa:27017/miapp?authSource=admin')
+```
+
+Creamos la imagen basándonos en el archivo `Dockerfile`
+
+```
+docker build -t appalejandroalsa:1 .
+```
+
+Este comando lo ejecutaremos donde se encuentre nuestro archivo `Dockerfile`
+
+Si nosotros ejecutar `docker images` observaremos como nuestra imagen está creada
+
+```
+REPOSITORY              TAG            IMAGE ID       CREATED          SIZE
+appalejandroalsa        1              0f2b184f137e   42 seconds ago   1.01GB
+```
+
+En el siguiente paso crearemos el contenedor
+
+```
+docker create -p27017:27017 --name Contenedor_alejandroalsa_app --network red_alejandroalsa -e MONGO_INITDB_ROOT_USERNAME=alejandroalsa -e MONGO_INITDB_ROOT_PASSWORD=alejandroalsa mongo
+```
+
+Ahora crearemos el contenedor de la APP
+
+```
+docker create -p3000:3000 --name Contenedor_alejandroalsa_app_node --network red_alejandroalsa appalejandroalsa:1
+```
+
+Lo que hemos realizado es crear un contenedor para `nodejs` basándonos en la imagen creada + crear un contenedor de `mongo` y unirlos en la misma red a través de una red interna que hemos creado.
+
 ## Docker Compose
 
 ## Volumenes
 
 ## Ambientes hot y reload
 
-Curso desarrollodo por `Alejandro Alfaro Sanchez`
+Curso desarrollodo por `Alejandro Alfaro Sánchez`
