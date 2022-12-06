@@ -7,12 +7,11 @@ page.title: "SSH"
 >  8 Nov 2022
 
 * **Introducción** [🟩](#introducción)
-* **Utilización de SSH** [🟧](/software/ssh/utilizacion-ssh/index)
-* **Configuración de SSH** [🟥](/software/ssh/configuracion-ssh/index)
-* **Transferencia de ficheros por SSH** [🟥](/software/ssh/transferencia-ficheros-ssh/index)
-* **Túneles SSH** [🟥](/software/ssh/tuneles-ssh/index)
-* **SSH en Windows** [🟥](/software/ssh/ssh-windows/index)
-
+* **Utilización de SSH** [🟩](/software/ssh/utilizacion-ssh/index)
+* **Configuración de SSH** [🟩](/software/ssh/configuracion-ssh/index)
+* **Transferencia de ficheros por SSH** [🟩](/software/ssh/transferencia-ficheros-ssh/index)
+* **Túneles SSH** [🟩](/software/ssh/tuneles-ssh/index)
+* **Certificado** [🟩](/software/ssh/certificado/)
 
 ## Introducción
 
