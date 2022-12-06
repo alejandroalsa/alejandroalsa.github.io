@@ -11,7 +11,7 @@ page.title: "SSH"
 * **Configuración de SSH** [🟩](/software/ssh/configuracion-ssh/index)
 * **Transferencia de ficheros por SSH** [🟩](/software/ssh/transferencia-ficheros-ssh/index)
 * **Túneles SSH** [🟩](/software/ssh/tuneles-ssh/index)
-* **Certificado** [🟩](/software/ssh/certificado/)
+* **Certificado** [🟩](/software/ssh/certificado/Certificado%20SSH%20Alejandro%20Alfaro%20Sanchez.pdf)
 
 ## Introducción
 
