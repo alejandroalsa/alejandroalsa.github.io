@@ -320,6 +320,16 @@ El registro de recuroso SRV permite definir equipos que soportan un servicio en 
 
 Un registro de puntero de DNS (abreviado, PTR) proporciona el nombre de dominio asociado a una dirección IP. Un registro PTR de DNS es exactamente lo contrario del registro "A", que proporciona la dirección IP asociada a un nombre de dominio. Los registros PTR de DNS se utilizan en las búsquedas de DNS inverso.
 
+## Transferencia de Zona 
 
+Los servidores DNS que declaran zonas esclavas o secundarias obtienen los archivos de zona (los registros de recursos) de otros servidores DNS autorizados para esas zonas. Á este proceso se le denomina transferencia de zona. Existen diferentes formas de llevarlo a cabo y es posible configurarlo en los servidores de nombres.
+
+## Transferencias de zona completas (AXFR)
+
+En una transferencia de zona completa el servidor maestro le envía al servidor esclavo todos los datos de la zona. Una petición AXFR de un servidor esclavo a uno maestro es una solicitud para una transferencia de zona completa.
+
+## Transferencias de zona incrementales (IXFR)
+
+En una transferencia de zona incremental el servidor maestro le envía al servidor esclavo solo los datos que han cambiado desde la última transferencia de zona. Una petición TXFR de un servidor esclavo a uno maestro es una solicitud para una transferencia de zona incremental.
 
 [Instalación de un servicio DNS en Ubuntu Server 22 LTS](/so/ubuntu-server/servicios/dhcp/instalacion)
