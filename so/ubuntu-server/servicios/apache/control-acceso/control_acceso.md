@@ -21,7 +21,7 @@ Podemos controlar el acceso a cualquier recurso o conjunto de recursos, por ejem
 *   **Require user userid [userid]...:** El acceso es permitido solo si los usuarios indicados se han autentificado.
 *   **Require group group-name [group-name]...:** El acceso es permitido solo a los grupos de usuarios especificados.
 *   **Require valid-user:** El acceso es permitido a los usuarios válidos.
-*   **Require ip 10 172.20 192.168.2:** El acceso es permitido si se hace desde el conjunto de direcciones especificadas.
+*   **Require ip 10.172.20 192.168.2:** El acceso es permitido si se hace desde el conjunto de direcciones especificadas.
 *   **Require host dominio:** El acceso es permitido si se hace desde el dominio especificado.
 *   **Require local:**El acceso es permitido desde `localhost`.
 

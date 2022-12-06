@@ -6,7 +6,6 @@ page.title: "Teoría DNS"
 
 El sistema de nombres de dominio ​ es un sistema de nomenclatura jerárquico descentralizado para dispositivos conectados a redes IP como Internet o una red privada. Este sistema asocia información variada con nombres de dominio asignados a cada uno de los participantes. El servidor DNS escucha peticiones en los puertos 53 TCP/UDP
 
-
 Para facilitar el uso de los servicios y recursos que ofrece una red se han creado sistemas de
 nombres utilizados por servicios de resolución de nombres que permiten asociar nombres
 sencillos con direcciones muméricas. Los servicios de nombres almacenan las direcciones y sus

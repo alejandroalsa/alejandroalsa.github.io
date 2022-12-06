@@ -7,11 +7,10 @@ page.title: "Utilización de SSH"
 >  26 Nov 2022
 
 * **Autenticación con usuario y contraseña** [🟩](#autenticación_con_usuario_y_contraseña)
-* **Autenticación con claves pública/privada** [🟥](#autenticación_con_claves_pública/privada)
-* **Autenticación con claves pública/privada y frase de paso** [🟥](#autenticación_con_claves_pública/privada_y_frase_de_paso)
-* **SSH-Agent** [🟥](#ssh-agen)
-* **Gestión de ficheros: authorized_keys y known_hosts** [🟥](#gestión_de_ficheros:_authorized_keys_y_known_hosts)
-* **Fordwarding** [🟥](#fordwarding)
+* **Autenticación con claves pública/privada y frase de paso** [🟩](#autenticación_con_claves_pública/privada_y_frase_de_paso)
+* **SSH-Agent** [🟩](#ssh-agen)
+* **Gestión de ficheros: authorized_keys y known_hosts** [🟩](#gestión_de_ficheros:_authorized_keys_y_known_hosts)
+* **Fordwarding** [🟩](#fordwarding)
 
 
 ## Autenticación con usuario y contraseña
@@ -102,18 +101,213 @@ usepam yes
 
 Que permite utilizar el subsistema PAM como mecanismo de autenticación.
 
-
-
-
-## Autenticación con claves pública/privada
-
 ## Autenticación con claves pública/privada y frase de paso
 
-## SH-Agent
+Para crear la clave privada utilizaremos la herramienta ssh-keygen, especificando el algoritmo que deseamos utilizar mediante el parámetro -t (dsa | ecdsa | ed25519 | rsa | rsa1)
+
+```
+ssh-keygen -t ecdsa
+```
+
+Se creará un diálogo mediante el cual nos pedirá una frase de paso para proteger la clave privada, paso que ignoraremos de momento y explicaremos con detalle en la siguiente sección.
+
+En este caso hemos optado por dejar el nombre de la clave por defecto (~/.ssh/id_ecdsa). Si vamos al directorio ~/.ssh veremos que existen dos nuevos ficheros, que se corresponden con la clave pública y la privada.
+
+```
+-rw------- 1 alejandroalsa alejandroalsa  513 Dec  6 10:47 id_ecdsa
+-rw-r--r-- 1 alejandroalsa alejandroalsa  180 Dec  6 10:47 id_ecdsa.pub
+```
+
+Lógicamente la clave privada se ha protegido en el sistema de forma que sólo el propietario puede leerla o modificarla, mientras que la pública puede leerla cualquier usuario y en general podrá estar accesible en cualquier sitio sin restricciones, ya que no es posible obtener la clave privada a partir de ella.
+
+Este proceso lo realizaremos en el equipo desde el cual nos conectaremos al equipo remoto
+
+### Copia de la clave pública en el equipo remoto
+
+Para que se pueda utilizar este mecanismo de autenticación es preciso que la clave pública del usuario se encuentre en la cuenta que éste posee en el equipo remoto, de forma más concreta, dentro del fichero ~/.ssh/authorized_keys, por lo que debemos utilizar algún método para ubicarla allí:
+
+```
+ssh-copy-id -i ~/.ssh/id_ecdsa alejandroalsa@alejandroalsa.es
+```
+
+Si accedemos al equipo remoto, podremos comprobar que la clave pública que hemos exportado se encuentra en el fichero ~/.ssh/authorized_keys.
+
+### Clave privada con nombre no estándar
+
+En el caso anterior hemos creado un par de claves con nombre estándar (id_ecdsa e id_ecdsa.pub), pero es posible definir cualquier nombre a la hora de crear el par de claves.
+
+```
+ssh-keygen -t ecdsa
+```
+```
+Enter file in which to save the key (/home/alejandroalsa/.ssh/id_ecdsa): Nombre_del_Archivo
+```
+```
+ssh -i ~/.ssh/Nombre_del_Archivo alejandroalsa@alejandroalsa.es
+```
+
+### Clave privada con frase de paso
+
+La autenticación con clave privada tiene importantes ventajas respecto al acceso con contraseña, pero tiene el inconveniente de la custodia de la clave privada. Cualquier usuario que obtuviese nuestra clave privada podría entrar en nuestra cuenta de cualquier equipo en el que tuviésemos exportada la correspondiente clave pública. Para aumentar la seguridad en esta situación se utiliza una frase de paso para proteger la clave privada, frase que se introduce al crear la clave privada o que puede modificarse a posteriori.
+
+El proceso sera el mismo la unica diferencia este en introducir una frase de paso cuando nos lo pida el equipo.
+
+## SSH-Agent
+
+SSH-Agent es un programa que permite almacenar las claves privadas de una sesión y es muy útil cuando usamos claves con frase de paso, ya que podemos añadir la clave privada al agente ssh y sólo tendremos que poner la frase de paso una vez, permitiendo utilizar ssh de forma transparente sin volver a introducir la frase de paso todo el tiempo que dure la sesión del usuario (realmente se puede limitar a una cantidad de tiempo menor si se desea).
+
+SSH-Agent se suele ejecutar automáticamente en las sesiones gráficas de los sistemas, como podemos verificar mediante:
+
+```
+env |grep SSH
+```
+```
+SSH_AUTH_SOCK=/run/user/1001/keyring/ssh
+SSH_AGENT_PID=2743
+```
+
+Mediante la herramienta ssh-add podemos añadir una clave al agente ssh, por ejemplo:
+
+```
+ssh-add ~/.ssh/Nombre_del_Archivo
+```
+
+Podemos ver las claves cargadas mediante:
+
+```
+ssh-add -L
+```
+
+Y sus huellas con:
+
+```
+ssh-add -l
+```
+
+O incluso eliminar todas las claves con:
+
+```
+ssh-add -D
+```
 
 ## Gestión de ficheros: authorized_keys y known_hosts
 
+### Fichero ~/.ssh/authorized_keys
+
+Se almacenan las claves públicas de los usuarios que pueden acceder a esta cuenta mediante clave pública/clave privada, el formato es:
+
+```
+algoritmo clave_publica comentario
+```
+
+Por ejemplo:
+
+```
+ssh-rsa #################...######## alejandroalsa@alejandroalsa
+```
+
+Si queremos que utilizar un par de claves para acceder a un equipo, debemos asegurarnos de que exista la clave pública en este fichero y cuando ya dejemos de utilizarla debemos borrar la línea correspondiente.
+
+### Fichero ~/.ssh/known_hosts
+
+Se almacenan las claves públicas de todos los equipos remotos a los que nos hemos conectado y que hemos aceptado, el formato es:
+
+```
+nombre_o_IP_equipo algoritmo clave_pública
+```
+
+Actualmente es más habitual que no se guarde el nombre o dirección IP del equipo en claro, sino que se almacene el hash. Para encontrar un determinado equipo por nombre o dirección IP podemos utilizar la instrucción:
+
+```
+ssh-keygen -F 10.10.10.10
+```
+```
+# Host 10.10.10.10 found: line 88 
+|1|###....###= ecdsa-sha2-nistp256 ###.....######=
+```
+
+### Cambio de clave pública del servidor
+
+Habitualmente se almacenan las claves públicas de los servidores a los que nos hemos conectado previamente en el fichero ~/.ssh/known_hosts, por lo que se verifica cada vez que se conecta que el servidor ofrece la misma clave pública. En caso de que no coincida veremos el siguiente mensaje:
+
+```
+
+
+ssh alejandroalsa@10.10.10.10
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the ECDSA key sent by the remote host is
+SHA256:###########################################.
+Please contact your system administrator.
+Add correct host key in /home/alejandroalsa/.ssh/known_hosts to get rid of this message.
+Offending ECDSA key in /home/alejandroalsa/.ssh/known_hosts:##
+  remove with:
+  ssh-keygen -f "/home/alejandroalsa/.ssh/known_hosts" -R 10.10.10.10
+ECDSA host key for 10.10.10.10 has changed and you have requested strict checking.
+Host key verification failed.
+```
+Es posible que se trate de una suplantación y por tanto un problema de seguridad, pero también es posible que se haya realizado un cambio en el servidor que haya implicado un cambio en las claves del servicio ssh o una situación muy habitual hoy en día: estamos reutilizando la misma IP para un nuevo servidor.
+
+En caso de que estemos seguros de que no hay ningún problema de seguridad al acceder a ese equipo remoto, debemos eliminar la antigua clave asociada a la dirección IP (o al nombre), mediante la instrucción:
+
+```
+ssh-keygen -R 10.10.10.10
+```
+```
+# Host 10.10.10.10 found: line ##
+/home/alejandroalsa/.ssh/known_hosts updated.
+Original contents retained as /home/alejandroalsa/.ssh/known_hosts.ol
+```
+
 ## Fordwarding
+
+Mediante esta técnica, es posible que el cliente ssh se comunique con un agente ssh que corre un una máquina remota y sin necesidad de poner las claves privadas en él, poder saltar a otro equipo remoto no accesible directamente. Es una técnica muy útil que permite no exponer directamente los servidores a los que realmente queremos acceder mediante ssh, sino que accedemos a ellos de forma transparente usando un equipo a modo de bastión.
+
+Esta posibilidad debe estar habilitada en el servidor intermedio mediante la directiva:
+
+```
+allowagentforwarding yes
+```
+
+En el cliente es necesario habilitar el parámetro:
+
+```
+ForwardAgent yes
+```
+
+### X11 forwarding
+
+A través de la técnica de X11 forwarding podemos ver en nuestra pantalla aplicaciones gráficas que se ejecutan a través de ssh en un equipo remoto (y viceversa).
+
+Aunque en primer lugar tiene que estar permitido en el servidor a través de las directivas:
+
+```
+X11Forwarding yes
+```
+```
+X11DisplayOffset 10
+```
+
+El cliente para conectarse y utilizar esta funcionalidad, deberá configurar adicionalmente la opción:
+
+```
+ForwardX11 yes
+```
+
+Al conectarnos por ssh podremos comprobar que está definida la variable DISPLAY con un valor definido a través de la variable X11DisplayOffset, por ejemplo:
+
+```
+env |grep DISPLAY
+```
+```
+DISPLAY=localhost:10
+```
+
+Al ejecutar una aplicación en el equipo remoto sobre la conexión ssh nos aparecerá en nuestra pantalla.
 
 Siguiente Tema [Configuración de SSH](software/ssh/configuracion-ssh/index)
 
