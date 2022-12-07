@@ -561,6 +561,43 @@ Lo que hemos realizado es crear un contenedor para `nodejs` basándonos en la im
 
 ## Docker Compose
 
+Hasta ahora la forma de crear contenedores e images a sido algo larga y tediosa, por este motivo se creo Docker Compose, una herramienta para definir y ejecutar aplicaciones de Docker de varios contenedores. En Compose, se usa un archivo YAML para configurar los servicios de la aplicación. Después, con un solo comando, se crean y se inician todos los servicios de la configuración.
+
+Para comenzar a crear nuestros propios contenedores crearemos en el directorio de nuestro proyecto un archivo `docker-compose.yml`, en este archivo configuraremos todas las imagenes, redes, contenedores y variables de entorno para nuestro contenedor.
+
+```yml
+version: "3.9"
+services:
+  app-alejandroalsa:
+    build: .
+    ports:
+      - "3100:3100"
+    links:
+        - app-alejandroalsa-db
+  app-alejandroalsa-db:
+    image: mongo 
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=alejandroalsa
+      - MONGO_INITDB_ROOT_PASSWORD=alejandroalsa
+```
+
+*   **version** Versión con la que trabajaremos
+*   **Services** Realizamos una "Lista" con las tareas que realizara, en este caso crear los contenedores
+*   **APP_Alejandroalsa_docker_compose** Nombre que le daremos al conetendor (puede ser cualquiera)
+*   **build** Indicamos en vase a que imagen se construira el contenedor, en mi caso `.` ya que se encuentra en el mismo directorio donde esto ejecutando este archivo
+*   **ports** Puertos que habilitamos, indicamos una tabulacion por si quieremos poner mas puertos (3100 -> Puerto de nuestra maqiuna : 3100 -> Puerto de nuestro contenedor)
+*   **links** Indicamos cual va a ser el nombre del contenedor que queremos mapear para que utilice este conetendor
+*   **image** Como no tenemos creado una imagen de mongo obtendremos la oficial
+*   **environment** Indicamos las variables de entorno para mongo para poder crearse con exito
+
+Ejecutaremos el siguiente comando para la creacion de los contenedores
+
+```
+docker compose up
+```
+
 ## Volumenes
 
 ## Ambientes hot y reload
