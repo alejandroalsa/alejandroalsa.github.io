@@ -8,6 +8,7 @@ JavaScript es un lenguaje de programación que los desarrolladores utilizan para
 
 ## JavaScript Basico
 
+*   **Consola**[]()
 *   **Tipos de datos primitivos**[]()
 *   **Funciones**[]()
 *   **Logica JavaScript**[]()
