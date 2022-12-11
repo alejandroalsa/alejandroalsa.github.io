@@ -31,7 +31,7 @@ Terraform es un software de infraestructura como código desarrollado por HashiC
 
 # Ansible 
 
->  Proximamente
+>  11 Dic 2022
 
 Ansible es una plataforma de software libre para configurar y administrar ordenadores. Combina instalación multi-nodo, ejecuciones de tareas ad hoc y administración de configuraciones. Adicionalmente, Ansible es categorizado como una herramienta de orquestación.
 
