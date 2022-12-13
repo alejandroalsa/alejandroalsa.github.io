@@ -20,22 +20,23 @@ Ansible es una plataforma de software libre para configurar y administrar ordena
 
 ## Introducción a los Playbooks
 
-*   **Estructura de los Playbooks**[🟥](./playbooks/index)
-*   **Inventarios**[🟥](./playbooks/index)
-*   **Variables y su prioridad**[🟥](./playbooks/index)
-*   **Roles**[🟥](./playbooks/index)
-*   **Módulos**[🟥](./playbooks/index)
-*   **Gestión de ficheros**[🟥](./playbooks/index)
+*   **Estructura de los Playbooks**[🟥]()
+*   **Inventarios**[🟥]()
+*   **Variables y su prioridad**[🟥]()
+*   **Roles**[🟥]()
+*   **Métodos de conexión**[🟥]()
+*   **Módulos**[🟥]()
+*   **Gestión de ficheros**[🟥]()
 
 ## Avanzando en los Playbooks con caso práctico
 
-*   **Playbook para desplegar un servidor web**[🟥](./playbooks-advance/index)
-*   **Registrando valores**[🟥](./playbooks-advance/index)
-*   **Añadiendo condiciones**[🟥](./playbooks-advance/index)
-*   **Failed when**[🟥](./playbooks-advance/index)
-*   **Ignore errors**[🟥](./playbooks-advance/index)
-*   **Plantillas con Variables**[](./playbooks-advance/index)
-*   **Bucles**[🟥](./playbooks-advance/index)
+*   **Playbook para desplegar un servidor web**[🟥]()
+*   **Registrando valores**[🟥]()
+*   **Añadiendo condiciones**[🟥]()
+*   **Failed when**[🟥]()
+*   **Ignore errors**[🟥]()
+*   **Plantillas con Variables**[]()
+*   **Bucles**[🟥]()
 
 ## Certificado
 
