@@ -523,7 +523,7 @@ Supongamos que, además de los dos proveedores anteriores, tenemos dada de alta 
 
 Realizamos dos configuraciones
 
-* **Crear el contexto `external_call` Donde redirigiremos las llamadas entrantes para que suenen en nuestra extensión interna 01.
+* **Crear el contexto** `external_call` Donde redirigiremos las llamadas entrantes para que suenen en nuestra extensión interna 01.
 * **Modificar el contexto `alejandroalsa`** Para permitir llamar al exterior desde nuestras extensiones internas.
 
 ```
@@ -695,3 +695,13 @@ git clone https://github.com/LLALEX-ESP/Servidor-VoIP.git
 ``` 
 
 Desarrollodo por `Alejandro Alfaro Sanchez`
+
+
+
+
+
+[ip-pbx](https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTGt-77sAdsLE_phwVFFuaf0y1g8pVxHQlnj43EncBeWGn3CD-AF-wyI_VP6a4n9Hk5fMm_ZoulMSRoWcNerleovpEesAdt_hUG4ZQ1bbXdD0CKT5YCaRjAPg&usqp=CAE)
+[ip-pbx](https://articulo.mercadolibre.com.co/MCO-961104885-central-telefonica-grandstream-ucm6510-ip-pbx-_JM#position=1&search_layout=stack&type=item&tracking_id=bfc6f965-3e17-4225-9365-9a2c0aa9bb2a)
+[ip-pbx](https://www.koontech.com/spain/IP-PBX-Server-KNTD-100__410.html)
+
+[empresa](https://www.ringover.es/)
