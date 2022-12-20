@@ -214,7 +214,7 @@ ii  asterisk-modules                              1:18.10.0~dfsg+~cs6.10.4043141
 ii  asterisk-moh-opsound-gsm                      2.03-1.1                          all          asterisk extra sound files - English/gsm
 un  asterisk-ooh323                               <ninguna>                         <ninguna>    (no hay ninguna descripción disponible)
 un  asterisk-opus                                 <ninguna>                         <ninguna>    (no hay ninguna descripción disponible)
-un  asterisk-prompt-en                            <ninguna>                         <ninguna>    (no hay ninguna descripción disponible)
+un  asterisk-prompt-en                            <ninguna>                         <ninguna>    (no hay ninguna descripción disponible)https://github.com/alejandroalsa/Servidor-VoIP/blob/main/README.md
 un  asterisk-prompt-en-us                         <ninguna>                         <ninguna>    (no hay ninguna descripción disponible)
 un  asterisk-prompt-es                            <ninguna>                         <ninguna>    (no hay ninguna descripción disponible)
 un  asterisk-prompt-es-mx                         <ninguna>                         <ninguna>    (no hay ninguna descripción disponible)
@@ -452,7 +452,196 @@ exten => 01,1,Dial(SIP/ext_01)
 exten => 02,1,Dial(SIP/ext_02)
 ```
 
-En este punto la configuracion estara finalizada.
+En este punto la configuracion basica estara finalizada.
+
+### Interconexión con proveedor VoIP
+
+En este paso conectaremos nuestra centralita Asterisk con un proveedor de telefonía VoIP para que pueda comunicarse con el exterior. Mediante el uso de proveedores de telefonía VoIP podremos realizar llamadas a la Red de Telefonía, y también que nos puedan llamar desde ella.
+
+Podemos separar los proveedores VoIP en dos categorías diferenciadas en función del servicio que proporcionan:
+
+* **Proveedores de minutos:** Permiten realizar llamadas hacia la Red de Telefonía, cobrándonos por tiempo u ofreciéndonos tarifas planas de llamadas. Las tarifas son variadas, pero podemos encontrar precios de 1 cent/minuto o incluso menos a destinos tanto nacionales como internacionales.
+
+* **Proveedores de DID:** Nos proporcionan un número de teléfono de la Red de Telefonía donde cualquier persona nos pueda llamar, y nos entregan las llamadas a nuestro Asterisk. Normalmente se alquilan por meses, y tienen un coste entre 5 y 15€/mes según el proveedor y el tipo de número. Por ejemplo, podemos tener un DID de numeración fija de Almeria del tipo `950 XX XX XX`, o de cualquier otra provincia española. También podemos alquilar números de países extranjeros para que nos llamen desde allí a precio de llamada local.
+
+Para configurar un proveedor VoIP tendremos que hacer algunos cambios en nuestra configuración:
+
+* **sip.conf**
+  * 1 -> Añadir una nueva sección con los datos de nuestro proveedor (IP, puerto, username, password y codecs a utilizar).
+  * 2 -> Añadir la línea de registro. De la misma manera que nuestras extensiones internas se registran con nuestro Asterisk, nuestro Asterisk se tiene que registrar con el proveedor externo. El registro realiza una autenticación con nuestra cuenta en el servidor VoIP del proveedor.
+
+* **extensions.conf**
+  * 1 -> Añadir contextos para los proveedores de DID, es decir, aquellos que sí van a interactuar con nuestro sistema para entregarnos llamadas.
+  * 2 -> Los proveedores que sólo nos ofrezcan minutos no necesitan interactuar con nosotros, así que por seguridad siempre les asignaremos un contexto de rechazo. En nuestros ejemplos, el contexto «general» es un contexto de rechazo.
+  * 3 -> Añadiremos las reglas de llamada para los destinos que nos interesen, modificando los contextos de aquellos usuarios que queramos que tengan salida al exterior.
+  
+### Proveedores VoIP
+
+* **Netelip:** Proveedor tanto de DIDs (recibir llamadas) como de minutos (hacer llamadas). [WEB](https://www.netelip.com/) 
+* **FreeVoIPDeal:** Proveedor exclusivamente de minutos.. [WEB](https://www.freevoipdeal.com/dashboard)
+
+Nos centraremos en **Netelip**
+
+### Configuracion en `sip.conf`
+
+```
+sudo nano sip.conf
+```
+
+```
+[connection]
+type=peer
+host=sip.netelip.com
+fromdomain=sip.netelip.com
+username=nombre_usuario_asignado
+secret=##########
+insecure=port,invite
+context=callin-netelip
+canreinvite=no
+```
+
+* **type:** Con los proveedores usaremos siempre el tipo de cuenta «peer».
+* **host:** El nombre o la IP del servidor SIP de nuestro proveedor.
+* **fromdomain:** Establece el dominio asociado a nuestra cuenta de usuario. Este dato nos lo proporciona el proveedor.
+* **username:** Nombre de usuario de nuestra cuenta SIP en el proveedor.
+* **secret:** Password de nuestra cuenta SIP.
+* **insecure:** El término resulta más preocupante de lo que debería. Insecure permite cambiar algunos aspectos de la autenticación, normalmente para permitir llamadas entrantes desde proveedores. En este caso, `port` indica que la autenticación se haga exclusivamente en base a IP, sin tener en cuenta el puerto; e `invite` indica que no se necesita autenticación con usuario/password para hablar con nosotros.
+* **context:** El contexto donde se enviarán las llamadas entrantes desde este proveedor.
+* **canreinvite:** Estableciendo a `no` obligamos a que el audio de las llamadas pasen obligatoriamente por Asterisk. Esto añade algo de latencia pero nos ahorra problemas con el NAT.
+
+Además de lo anterior, tenemos que hacer que Asterisk envíe el usuario y password de nuestra cuenta al proveedor para registrarnos con él. Esto es necesario para indicar que estamos activos, y decirle dónde nos puede encontrar cuando nos tenga que entregar una llamada. Esta parte se hace con la línea de registro en la sección `[general]`, indicando el nombre de usuario y el nombre de la sección que hemos definido para el proveedor, en este caso `[connection]`:
+
+```
+register => nombre_usuario_asignado@connection
+```
+
+### Configuracion del DialPlan
+
+El siguiente paso es configurar el DialPlan tanto para las llamadas entrantes como para las salientes.
+
+Supongamos que, además de los dos proveedores anteriores, tenemos dada de alta una extensión interna `01` asociada al contexto `alejandroalsa`.
+
+Realizamos dos configuraciones
+
+* **Crear el contexto `external_call` Donde redirigiremos las llamadas entrantes para que suenen en nuestra extensión interna 01.
+* **Modificar el contexto `alejandroalsa`** Para permitir llamar al exterior desde nuestras extensiones internas.
+
+```
+sudo nano extensions.conf
+```
+
+```
+[external_call]
+exten => s,1,Dial(SIP/01)
+same => n,Hangup(16)
+```
+
+* **exten:** Redirige la llamada hacia la extensión 3001 de SIP. Es decir, cuando alguien llame a nuestro número de Netelip desde la Red de Telefonía Conmutada, sonará nuestra extensión 01.
+* **same:** Por último, al terminar la llamada colgaremos a la persona que nos ha llamado. El código 16 indica que la llamada ha terminado con normalidad.
+
+Una de las ventajas de usar Asterisk es que podemos configurar las rutas de llamadas como mejor nos convenga. Por ejemplo, nos puede interesar cursar unos tipos de llamadas a través de un proveedor concreto por razones de calidad o precio, y el resto de llamadas a través de otro proveedor. La flexibilidad es total.
+
+Supongamos lo siguiente:
+
+* Queremos usar Netelip para llamar a teléfonos fijos de España.
+* Queremos dar un mensaje de voz cuando se marque un número no válido (ej: llamadas internacionales).
+
+Para organizar mejor el dialplan y asegurar que las expresiones se evalúan en el orden correcto vamos a introducir una nueva directiva: `include`. Esta directiva nos permite definir un contexto como composición de contextos, y nos permite controlar mejor el orden de evaluación de extensiones. 
+
+```
+[extensiones]
+include => llamadas-externas
+include => llamadas-no-validas
+ 
+[llamadas-externas]
+;Llamada a fijos de España por Netelip
+exten => _[8-9][1-8]XXXXXXX,1,Dial(SIP/${EXTEN}@connection)
+same => n,Hangup(16)
+```
+
+Hemos definido el contexto `extensiones` como la suma de `llamadas-externas` + `llamadas-no-validas`, en ese orden.
+
+Al realizarse una llamada a través del contexto «extensiones», Asterisk buscará primero una coincidencia de extensión dentro del contexto `llamadas-externas`. Si hemos marcado un número fijo español o un móvil que empiece por 6, la extensión marcada cuadrará con una de las dos definiciones existentes y cursará la llamada a través del proveedor correspondiente.
+
+Si no cuadra con ninguna definición de `llamadas-externas`, entonces buscará en el contexto `llamadas-no-validas`. Este contexto tiene una única extensión definida que lo admite todo, por lo que siempre que se llegue hasta aquí aceptará realizando lo siguiente: descuelga, indica que el número marcado no es válido, y cuelga.
+
+Es decir, cuando marquemos un número definido con alguna regla en `llamadas-externas`, Asterisk cursará la llamada a través del proveedor que hayamos asignado. Si el número marcado no está aceptado por nuestro DialPlan (por ejemplo llamadas internacionales o líneas 806 xxx xxx), entonces Asterisk nos dará una locución de aviso y colgará sin enviar la llamada al exterior.
+
+### Ejemplo Completo
+
+
+* **Tenemos una extensión interna:** 01.
+* **Tenemos al proveedor de telefonía:** Netelip
+* **Queremos usar Netelip para llamar a fijos de España.**
+* **Queremos que las llamadas entrantes de Netelip suenen en la extensión 01.**
+
+```
+sudo nano sip.conf
+```
+
+```
+[general]
+udpbindaddr=0.0.0.0:5060
+context=default
+srvlookup=yes
+allowguest=no
+alwaysauthreject=yes
+ 
+register => nombre_usuario_asignado@trunk-netelip
+register => mi_usuario@trunk-freevoipdeal
+ 
+; Extension 01
+[ext_01](usuario)
+type=peer
+username=usu_ext_01
+host=dynamic
+secret=usu_ext_01
+port=5061
+context=extensiones
+
+ 
+[connection]
+type=peer
+host=sip.netelip.com
+fromdomain=sip.netelip.com
+username=nombre_usuario_asignado
+secret=##########
+insecure=port,invite
+context=callin-netelip
+canreinvite=no
+```
+
+```
+sudo nano extensios.conf
+```
+
+```
+[general]
+; Recibe lo que no tiene un contexto propio definido. 
+; Rechaza todo por seguridad.
+exten => _X.,1,Hangup(21)
+exten => s,1,Hangup(21)
+ 
+[external_call]
+;Las llamadas de Netelip van al 01
+exten => s,1,Dial(SIP/01)
+same => n,Hangup(16)
+ 
+[extensiones]
+include => llamadas-externas
+include => llamadas-no-validas
+ 
+[llamadas-externas]
+;Llamada a fijos de España por Netelip
+exten => _[8-9][1-8]XXXXXXX,1,Dial(SIP/${EXTEN}@connection)
+same => n,Hangup(16)
+ 
+[llamadas-no-validas]
+exten => _X.,1,Answer
+same => n,Wait(1)
+same => n,Playback(you-dialed-wrong-number)
+same => n,Hangup(21)
+```
 
 ### Instalacion Zoiper
 
@@ -502,10 +691,7 @@ Despues ya podremos empeazar a utlizar la herramienta y relizar la primera llama
 ## Descarga
 
 ```
-git clone https://github.com/alejandroalsa/Servidor-VoIP.git
+git clone https://github.com/LLALEX-ESP/Servidor-VoIP.git
 ``` 
-
-
-
 
 Desarrollodo por `Alejandro Alfaro Sanchez`
