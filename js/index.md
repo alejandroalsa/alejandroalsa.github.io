@@ -8,21 +8,21 @@ JavaScript es un lenguaje de programación que los desarrolladores utilizan para
 
 ## JavaScript Basico
 
-*   **Tipos de datos primitivos**[]()
-*   **Funciones**[]()
-*   **Logica JavaScript**[]()
+*   **Tipos de datos primitivos**[🟩]()
+*   **Funciones**[🟩]()
+*   **Logica JavaScript**[🟩]()
 
 ## JavaScript Medio
 
-*   **JavaScript como lenguaje**[]()
-*   **Ejecución en JavaScript**[]()
-*   **Datos y operaciones**[]()
-*   **Control de flujo**[]()
-*   **JavaScript en el Navegador**[]()
+*   **JavaScript como lenguaje**[🟥]()
+*   **Ejecución en JavaScript**[🟥]()
+*   **Datos y operaciones**[🟥]()
+*   **Control de flujo**[🟥]()
+*   **JavaScript en el Navegador**[🟥]()
 
 ## JavaScript Avanzado
 
-*   **Estructuras de Datos**[]()
-*   **Promesasa y asincronía**[]()
-*   **Programación funcional**[]()
-*   **Módulos de JavaScript**[]()
+*   **Estructuras de Datos**[🟥]()
+*   **Promesasa y asincronía**[🟥]()
+*   **Programación funcional**[🟥]()
+*   **Módulos de JavaScript**[🟥]()
