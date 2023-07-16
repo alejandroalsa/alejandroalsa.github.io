@@ -5,47 +5,42 @@ theme: jekyll-theme-chirpy
 
 # Change the following value to '/PROJECT_NAME' ONLY IF your site type is GitHub Pages Project sites
 # and doesn't have a custom domain.
-baseurl: ""
+baseurl: "/alejandroalsa.github.io"
 
 # The language of the webpage › http://www.lingoes.net/en/translator/langcode.htm
 # If it has the same name as one of the files in folder `_data/locales`, the layout language will also be changed,
 # otherwise, the layout language will use the default value of 'en'.
-lang: en
+lang: sp
 
 # Change to your timezone › http://www.timezoneconverter.com/cgi-bin/findzone/findzone
-timezone:
+timezone: Europe/Madrid
 
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Chirpy # the main title
+title: ΛLΣJΛПDЯOΛLSΛ
 
-tagline: A text-focused Jekyll theme # it will display as the sub-title
+tagline: CEO-DIWES / DevOps # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
-  A minimal, responsive and feature-rich Jekyll theme for technical writing.
+  Blog Personal de Alejandro Alfaro Sánchez. Aquí encontrarás tutoriales, guías y cursos para mejorar tus habilidades en programación, hardware, redes y más.
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
-url: ""
+url: "https://alejandroalsa.es"
 
 github:
-  username: github_username # change to your github username
+  username: alejandroalsa
 
 twitter:
-  username: twitter_username # change to your twitter username
+  username: alejandroalsatw
 
 social:
-  # Change to your full name.
-  # It will be displayed as the default author of the posts and the copyright owner in the Footer
-  name: your_full_name
-  email: example@domain.com # change to your email address
+  name: Alejandro Alfaro Sanchez
+  email: alejandro@alejandroalsa.es
   links:
-    # The first element serves as the copyright owner's link
-    - https://twitter.com/username # change to your twitter homepage
-    - https://github.com/username # change to your github homepage
-    # Uncomment below to add more social links
-    # - https://www.facebook.com/username
-    # - https://www.linkedin.com/in/username
+    - https://twitter.com/alejandroalsatw
+    - https://github.com/alejandroalsa
+    - https://www.linkedin.com/in/alejandro-alfaro-sanchez
 
 google_site_verification: # fill in to your verification string
 
@@ -53,30 +48,16 @@ google_site_verification: # fill in to your verification string
 # The end of `jekyll-seo-tag` settings
 
 google_analytics:
-  id: # fill in your Google Analytics ID
+  id: G-WK1J8H37KP
+  pv:
+    proxy_endpoint:
+    cache_path:
 
-# Prefer color scheme setting.
-#
-# Note: Keep empty will follow the system prefer color by default,
-# and there will be a toggle to switch the theme between dark and light
-# on the bottom left of the sidebar.
-#
-# Available options:
-#
-#     light  - Use the light color scheme
-#     dark   - Use the dark color scheme
-#
 theme_mode: # [light|dark]
 
-# The CDN endpoint for images.
-# Notice that once it is assigned, the CDN url
-# will be added to all image (site avatar & posts' images) paths starting with '/'
-#
-# e.g. 'https://cdn.com'
 img_cdn:
 
-# the avatar on sidebar, support local or CORS resources
-avatar:
+avatar: assets/img/alejandroalsa.jpeg
 
 # boolean type, the global switch for TOC in posts.
 toc: true
