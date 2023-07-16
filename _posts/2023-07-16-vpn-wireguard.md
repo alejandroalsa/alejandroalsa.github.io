@@ -21,7 +21,6 @@ En resumen, WireGuard es una solución de VPN de alto rendimiento, segura y fác
 
 
 
-
 ## Configuración de WireGuard en Ubuntu Server
 
 ### Actualizar el Sistema Operativo
