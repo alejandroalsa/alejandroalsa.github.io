@@ -1,7 +1,7 @@
 ---
-title: Wireguard VPN
+title: WireGuard VPN
 date: 2023-07-16 12:00:00 +0800
-categories: [Redes y Telecomunicaciones, VPN, WireGuard]
+categories: [Redes y Telecomunicaciones, WireGuard]
 tags: [WireGuard, VPN]
 ---
 
@@ -18,8 +18,6 @@ En resumen, WireGuard es una solución de VPN de alto rendimiento, segura y fác
 ## Esquema de RED
 
 ![RED](https://user-images.githubusercontent.com/67869168/222277880-d1e008bb-541f-408d-8639-c9d0a5c04db2.svg)
-
-
 
 ## Configuración de WireGuard en Ubuntu Server
 
