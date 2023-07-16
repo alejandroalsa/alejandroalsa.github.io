@@ -8,11 +8,9 @@ order: 4
 
 ![LOGO](/assets/img/alejandroalsa-logo.svg)
 
-
 <h1 align="center"><b>ΛLΣJΛПDЯOΛLSΛ</b></h1>
 
 <h4 align="center">Blog Personal de Alejandro Alfaro Sánchez. Aquí encontrarás tutoriales, guías y cursos para mejorar tus habilidades en programación, hardware, redes y más.</h4>
-
 
 <h2>🌐 Socials:</h2>
 <div>
@@ -64,6 +62,9 @@ order: 4
   <br/>
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=alejandroalsa&theme=react&hide_border=false&include_all_commits=true&count_private=true&layout=compact" alt="Top Languages">
 </div>
+
+[![Github activity graph](https://github-readme-activity-graph.vercel.app/graph?username=alejandroalsa&bg_color=1b1b1e&color=ffffff&line=1a5fb4&point=e5a50a&area=true&hide_border=true)](https://github.com/ashutosh00710/github-readme-activity-graph)
+
 
 <h2>🏆 GitHub Trophies</h2>
 <div>
