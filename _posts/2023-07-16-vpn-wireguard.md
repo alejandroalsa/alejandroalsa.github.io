@@ -1,8 +1,8 @@
 ---
 title: WireGuard VPN
 date: 2023-07-16 12:00:00 +0800
-categories: [Redes y Telecomunicaciones, WireGuard]
-tags: [WireGuard, VPN]
+categories: [Redes y Telecomunicaciones, VPN]
+tags: [VPN]
 ---
 
 ![VPN](https://restoreprivacy.com/wp-content/uploads/2022/11/WireGuard-VPN-2022.jpeg)
