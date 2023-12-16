@@ -1,8 +1,8 @@
 ---
 title: Variables
 date: 2023-12-06 12:00:00 +0800
-categories: [Programación, Variables, Java]
-tags: [Java]
+categories: [Programación, Java]
+tags: [Variables, Java]
 ---
 
 Las variables son contenedores para almacenar valores de datos, estos pueden ser permanentes (como las constantes que veremos mas adelante) o también pueden ser editable/modificables que son las variables.
