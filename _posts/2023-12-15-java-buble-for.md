@@ -59,3 +59,34 @@ Valor de J: 3
 Si analizamos la salida vemos que tiene toda la lógica del mundo. Primero entra el bucle de `i`, en el cual declaramos que `i = 1` con la condición de `i <= 2` y una ejecución final de `i++`. El bucle se ejecutara ya que el primer valor de `i` es 1 por lo que el bloque de código se ejecutara. En este caso como en el bloque de código hay otro bucle pues este bucle se ejecutara al igual que antes los `System.out.println`, la clave de ese código esta en que como el bloque de código de nuestro primer bucle hay otro bucle el primer bucle no seguirá ejecutándose hasta que el segundo bucle aya terminado ya que ese es el código que tiene que ejecutar y tiene que hacerlo hasta que termine, y es por eso que el segundo bucle se imprime dos veces.
 
 Se que puede parecer algo engorroso, por eso te recomiendo que razones el código escribiendo lo que pasa paso a paso en un papel, para que le pilles el sentido.
+
+## Bucle `for-each`
+
+Tambien hay un bucle denominado `for-each`, este se utiliza *exclusivamente* para recorrer los valores de una matriz (array), esta es su estructura:
+
+```java
+for (/* tipo + nombre variable */: /* nombre de la matriz (array) */) {
+
+}
+```
+
+En el siguiente ejemplo nuetro codigo imprimira todos los nombre de las marcas de coches que estan denro de nuestra matriz (array):
+
+```java
+String[] marcasChoches = {"BMW", "Jaguar", "Mercedes", "Ford", "Porche"};
+
+for (String marcas : marcasChoches) {
+  System.out.println(marcas);
+}
+```
+
+Salida:
+
+```text
+BMW
+Jaguar
+Mercedes
+Ford
+Porche
+```
+

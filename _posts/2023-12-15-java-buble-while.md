@@ -96,35 +96,3 @@ Salida:
 20
 21
 ```
-
-
-## Bucle `for-each`
-
-Tambien hay un bucle denominado `for-each`, este se utiliza *exclusivamente* para recorrer los valores de una matriz (array), esta es su estructura:
-
-```java
-for (/* tipo + nombre variable */: /* nombre de la matriz (array) */) {
-
-}
-```
-
-En el siguiente ejemplo nuetro codigo imprimira todos los nombre de las marcas de coches que estan denro de nuestra matriz (array):
-
-```java
-String[] marcasChoches = {"BMW", "Jaguar", "Mercedes", "Ford", "Porche"};
-
-for (String marcas : marcasChoches) {
-  System.out.println(marcas);
-}
-```
-
-Salida:
-
-```text
-BMW
-Jaguar
-Mercedes
-Ford
-Porche
-```
-
