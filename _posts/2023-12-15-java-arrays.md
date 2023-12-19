@@ -7,9 +7,9 @@ tags: [Java]
 
 ## Arrays
 
-Arrays o en espanol matrices, se pueden utilizar para almacenar informacion multiple, a diceferncia de las variables que solo podian alamcenar en valor en los arrays es lo contrario pueden almacenar desde 1 valor hasta infinitos valores.
+Arrays o en espanol matrices, se pueden utilizar para almacenar información múltiple, a diferencia de las variables que solo podían almacenar en valor en los arrays es lo contrario pueden almacenar desde 1 valor hasta infinitos valores.
 
-Su metodo de declaracion es muy similar al de una vatiable, primero el tipo de dato que almacene, despues el nombre y por ultimo los valores:
+Su método de declaración es muy similar al de una variable, primero el tipo de dato que almacene, después el nombre y por ultimo los valores:
 
 ```java
 String[] marcasCoches;
