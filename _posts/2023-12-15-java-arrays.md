@@ -34,7 +34,7 @@ Al igual que podemos sobrescribir una variable también lo podemos hacer con un 
 ```java
 String[] marcasCoches = {"BMW", "Jaguar", "Mercedes", "Ford", "Porche"};
 
-marchasCoches[2] = "Ferrari";
+marcasCoches[2] = "Ferrari";
 ```
 
 También podemos calcular su longitud:
@@ -50,7 +50,7 @@ System.out.println(marcasCoches.length);
 Un array multidimensional es un array de arrays, estos son útiles cuando deseamos almacenar datos en forma de tablas, es decir en filas y columnas. Para creaar una matriz bidimensional agregamos cada matriz dentro de su propio conjunto de llaves:
 
 ```java
-//* int[][] numeros = {{5,6,7,8},{9,10,11,12}};
+int[][] numeros = {5,6,7,8},{9,10,11,12};
 ```
 
 Esto si lo miramos en forma de tabla seria algo como esto:
@@ -79,7 +79,7 @@ Salida:
 Al igual que sobrescribiamos el valor de de un array tambien lo podemos hacer con los arrays multidimensionales de la misma forma:
 
 ```java
-/* int[][] numeros = {{5,6,7,8},{9,10,11,12}};
+int[][] numeros = {5,6,7,8},{9,10,11,12};
 numeros[0][2] = 3;
 ```
 
@@ -99,7 +99,7 @@ for (int i = 0; i < marcasCoches.length; i ++){
 También podemos utilizar un `for loop` dentro de otro `for loop` para obtener los elementos de una matriz bidimensional (todavía tenemos que señalar los dos índices): 
 
 ```java
-/* int[][] numeros = {{5,6,7,8},{9,10,11,12}};
+int[][] numeros = {5,6,7,8},{9,10,11,12};
 
 for (int i = 0; i < numeros.length; i ++){
   for (int j = 0; j < numeros[i].length; j ++){
