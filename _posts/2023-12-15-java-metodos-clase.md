@@ -1,5 +1,5 @@
 ---
-title: métodos de clase
+title: Métodos de clase
 date: 2023-12-15 12:00:00 +0800
 categories: [Programación, Java]
 tags: [Java]
