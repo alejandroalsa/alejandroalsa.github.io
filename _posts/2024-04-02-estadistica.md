@@ -1,9 +1,10 @@
 ---
 title: Análisis descriptivo de datos. Regresión
 date: 2024-01-08 8:00:00 +0800
-categories: [Estadística]
-tags: [Estadística, Regresión, Análisis]
+categories: [Estadística, Regresión, Análisis]
+tags: [Estadística]
 math: true
+comments: false
 ---
 
 # Análisis descriptivo de datos. Regresión.
@@ -56,7 +57,7 @@ Representa el número o fracción de veces que aparece cada posible valor de la 
 
 **Frecuencia Absoluta Acumulada (F.A Acumulada)** Es la suma actual de las frecuencias absolutas hasta cierto punto de la distribución.
 
-**Frecuencia Relativa (Frec. Relativa)** Es la porcion de observaciones en una categoria especifica en relacion al numero de observaciones, o en este caso a la cantidad de recursos económicos.
+**Frecuencia Relativa (Frec. Relativa)** Es la porción de observaciones en una categoría especifica en relación al numero de observaciones, o en este caso a la cantidad de recursos económicos.
 
 **Frecuenca Relativa Acumulada (F.R. Acumulada)** Es la suma actual de las frecuencias relativas hasta cierto punto de la distribución.
 
@@ -138,20 +139,193 @@ Si hay un número par de valores, es la media aritmética de lso dos valores cen
 
 ### Cuantiles
 
+Los cuantiles son valores de la variable que dividen a la distribución en un número determinado de partes iguales, es decir, en intervalos con igual frecuencia.
+
+Existen casso particulares de cuantiles:
+
+* **Cuartiles** Son los 3 valores de la variable ($Q_1$, $Q_2$, $Q_3$) que dividen la distribución en 4 partes iguales, cada una conteniendo el 25% de los valores de la variable.
+
+$$Q_i, i = 1,2,3 => \frac{N * i}{4}$$
+
+* **Deciles** Son los 9 valores de la variable ($D_1$, $D_2$, $D_3$, ..., $D_9$) que dividen la distribución en 10 partes iguales, cada una conteniendo el 10% de los valores de la variable.
+
+$$D_i, i = 1,2,3,...,9 => \frac{N * i}{10}$$
+
+* **Percentiles** Son los 99 valores de la variable ($P_1$, $P_2$, $P_3$, ..., $P_99$) que dividen la distribución en 100 partes iguales.
+
+$$P_i, i = 1,2,3,...,99 => \frac{N * i}{99}$$
+
+Si la posición obtenida con las fórmulas anteriores no es un número entero, elegiremos el dato que se encuentra en la posición que se corresponde con el siguiente número entero.
+
+$$2,3 = 3$$
+
+Si la posición obtenida con las fórmulas anteriores sí es un número entero, el cuantil lo calcularemos como la media del dato contenido en esa posición y el contenido de la posición siguiente
+
+### Medidas de dispersión absolutas
+
+Las medidas de dispersión absolutas son estadísticas que proporcionan información sobre la variabilidad o dispersión de un conjunto de datos sin tener en cuenta la dirección de las desviaciones con respecto a la media. Algunas de las más comunes son:
+
+* **Varianza** Es una medida que nos indica cuánto se alejan los datos de la media. Tenemos que tener en cuenta que la varianza no puede ser negativa, no queda afectada por cambios de origen pero si por cambios de escala.
+
+$$S^2 = \frac{1}{N} \sum_{i=1}^N (x_1 - \bar{x})^2 $$
 
 
+* **Desviación típica** Nos da una idea de cuánto se dispersan los datos en torno a la media. Una desviación típica mayor indica una mayor dispersión de los datos, mientras que una desviación típica menor indica que los datos están más concentrados alrededor de la media. Se denota como σ (sigma) para poblaciones y ss (minúscula) para muestras. Tenemos que tener en cuenta que la varianza no puede ser negativa, no queda afectada por cambios de origen pero si por cambios de escala.
 
+$$S = \sqrt{S^2} $$
+
+### Medidas de dispersión relativas
+
+Las medidas de dispersión relativas son estadísticas que proporcionan información sobre la variabilidad o dispersión de un conjunto de datos en relación a su tamaño.
+
+* **Coeficiente de Pearson**  Representa el número de veces que $S$ contiene a $\bar{x}$, luego a mayor $V$, menor representatividad de $\bar{x}$
+
+$$V= \frac{S}{\bar{x}}$$
+
+Ejemplo:
 
 ## Variables estadísticas bidimensionales y distribuciones de frecuencias. Independencia.
 
+El valor de una variable puede influir sobre otra, al mismo tiempo si no influye y no existe una relacion se puede decir que son independientes y cuando su relacion es perfecta se dice que estan relacionadas funcionalmete o lo que es lo mismo:
 
+$$ y = f(x)$$
 
+| X\Y                        | [0,2] | (2,4] | (4,6] | (6,8] | (8,10] | $n_x$ |
+|----------------------------|-------|-------|-------|-------|--------|-------|
+| Facebook                   | 8     | 5     | 8     | 3     | 2      | 26    |      
+| TikTok                     | 5     | 9     | 3     | 0     | 0      | 17    |
+| YouTube                    | 5     | 3     | 5     | 0     | 0      | 13    |
+| Pinterest                  | 6     | 7     | 2     | 2     | 0      | 17    |
+| Instagram                  | 6     | 1     | 2     | 0     | 0      | 9     |
+| X                          | 3     | 6     | 3     | 1     | 0      | 13    |
+| Otra                       | 2     | 1     | 0     | 0     | 0      | 3     |
+| No estoy en redes sociales | 2     | 0     | 0     | 0     | 0      | 2     |
+| $n_y$                      | 37    | 32    | 23    | 6     | 2      | 100   |
 
+### Distribución marginal
 
+La distribución marginal de $Y$ expresa cuantas veces se repite cada valor $y_i$ con independencia de que aparezca conjuntamente con otro valor y otro de $X$
 
+| $Y$                        | [0,2] | (2,4] | (4,6] | (6,8] | (8,10] |
+|----------------------------|-------|-------|-------|-------|--------|
+| $n_y$                      | 37    | 32    | 23    | 6     | 2      |
 
+La distribución marginal de $X$ expresa cuantas veces se repite cada valor $y_i$ con independencia de que aparezca conjuntamente con otro valor y otro de $Y$
+
+| X\Y                        | $n_x$ |
+|----------------------------|-------|
+| Facebook                   | 26    |      
+| TikTok                     | 17    |
+| YouTube                    | 13    |
+| Pinterest                  | 17    |
+| Instagram                  | 9     |
+| X                          | 13    |
+| Otra                       | 3     |
+| No estoy en redes sociales | 2     |
+
+### Distribución condicionada
+
+La distribución condicional de $X$ dada $Y$ describe cómo se distribuyen los valores de $X$ para cada valor de $Y$.
+
+Distribución de $X$ condicionada a $Y:X\Y$
+
+Distribución de $Y$ condicionada a $X:Y\X$
+
+Ejemplo:
+
+Distribución $X\Y = (2,4]$
+
+| X\Y                        | [0,2] | (2,4] | (4,6] | (6,8] | (8,10] | $X\Y = (2,4]$ |
+|----------------------------|-------|-------|-------|-------|--------|---------------|
+| Facebook                   | 8     | 5     | 8     | 3     | 2      | 5             |      
+| TikTok                     | 5     | 9     | 3     | 0     | 0      | 9             |
+| YouTube                    | 5     | 3     | 5     | 0     | 0      | 3             |
+| Pinterest                  | 6     | 7     | 2     | 2     | 0      | 7             |
+| Instagram                  | 6     | 1     | 2     | 0     | 0      | 1             |
+| X                          | 3     | 6     | 3     | 1     | 0      | 6             |
+| Otra                       | 2     | 1     | 0     | 0     | 0      | 1             |
+| No estoy en redes sociales | 2     | 0     | 0     | 0     | 0      | 0             |
+|                            |       |       |       |       |        | 32            |
+
+Distribución $Y\X = TikTok U Facebook$
+
+| X\Y                         | [0,2] | (2,4] | (4,6] | (6,8] | (8,10] |    |
+|-----------------------------|-------|-------|-------|-------|--------|----|
+| Facebook                    | 8     | 5     | 8     | 3     | 2      |    |      
+| TikTok                      | 5     | 9     | 3     | 0     | 0      |    |
+| YouTube                     | 5     | 3     | 5     | 0     | 0      |    |
+| Pinterest                   | 6     | 7     | 2     | 2     | 0      |    |
+| Instagram                   | 6     | 1     | 2     | 0     | 0      |    |
+| X                           | 3     | 6     | 3     | 1     | 0      |    |
+| Otra                        | 2     | 1     | 0     | 0     | 0      |    |
+| No estoy en redes sociales  | 2     | 0     | 0     | 0     | 0      |    |
+| $Y\X = TikTok U Facebook$   | 13    | 14    | 12    | 3     | 2      | 44 |
+
+### Independencia estadı́stica
+
+Dos variables $X$ e $Y$ son independientes estadı́sticamente cuando la frecuencia relativa conjunta es igual al producto de las frecuencias relativas marginales:
+
+$$\frac{n_xy}{N} = \frac{n_x}{N} X \frac{n_y}{N} =>$$
+
+$$N X n_xy = n_x X n_y ∀(x , y)$$
+
+Ejemplo A:
+
+$X:$ Número de hermanos
+$Y:$ Número de mascotas
+
+¿Son $X$ e $Y$ independientes?
+
+| X\Y   | 0  | 1  | $n_x$ |
+|-------|----|----|-------|
+| 0     | 30 | 20 | 50    |
+| 1     | 18 | 12 | 30    |
+| 2     | 6  | 4  | 10    |
+| 3     | 6  | 4  | 10    |
+| $n_y$ | 60 | 40 | 100   |
+
+$N X n_xy = n_x X n_y ∀(x , y)$
+
+* Par $(x_1, y_1): 100 * 30 = 50 * 60$
+* Par $(x_1, y_2): 100 * 20 = 50 * 40$
+* Par $(x_2, y_1): 100 * 18 = 30 * 60$
+* Par $(x_2, y_2): 100 * 12 = 30 * 40$
+* Par $(x_3, y_1): 100 * 6 = 10 * 60$
+* Par $(x_3, y_2): 100 * 4 = 10 * 40$
+* Par $(x_4, y_1): 100 * 6 = 10 * 60$
+* Par $(x_4, y_2): 100 * 4 = 10 * 40$
+
+Si $X$ e $Y$ son independientes.
+
+Ejemplo B:
+
+$X:$ Horas diarias de uso de la red social
+$Y:$ Nota media curso
+
+¿Son $X$ e $Y$ independientes?
+
+| X\Y    | (0,5] | (5,7] | (7,9] | (9,10] | $n_x$ |
+|--------|-------|-------|-------|--------|-------|
+| (0,2]  | 0     | 1     | 24    | 12     | 37    |
+| (2,4]  | 0     | 17    | 14    | 1      | 32    |
+| (4,6]  | 8     | 15    | 0     | 0      | 23    |
+| (6,8]  | 6     | 0     | 0     | 0      | 6     |
+| (8,10] | 2     | 0     | 0     | 0      | 2     |
+| $n_y$  | 16    | 33    | 38    | 13     | 100   |
+
+$N X n_xy = n_x X n_y ∀(x , y)$
+
+* Par $(x_1, y_1): 100 * 0 = 37 * 16$
+* Par $(x_1, y_2): 100 * 1 != 32 * 33$
+* No hay necesidad de seguir comprobando
+
+Si $X$ e $Y$ no son independientes.
+
+![Diagrama de Dispersión Ejemplo B](../assets/img/diagrama_dispersion.png)
 
 ## Regresión lineal y correlación.
+
+### Covarianza
 
 
 
