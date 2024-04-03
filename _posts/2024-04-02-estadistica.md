@@ -323,26 +323,96 @@ Si $X$ e $Y$ no son independientes.
 
 ![Diagrama de Dispersión Ejemplo B](../assets/img/diagrama_dispersion.png)
 
-## Regresión lineal y correlación.
-
 ### Covarianza
 
+La covarianza es una medida estadística que indica el grado de variación conjunta entre dos variables aleatorias. En otras palabras, la covarianza mide cómo cambian dos variables juntas. Si la covarianza es positiva, significa que cuando una variable aumenta, es probable que la otra también aumente. Por el contrario, si la covarianza es negativa, indica que cuando una variable aumenta, es probable que la otra disminuya. Si la covarianza es cercana a cero, las variables están poco correlacionadas.
+
+$$S_xy = \frac{1}{N}\sum_{i=1}^h\sum_{j=1}^kx_iy_j - \bar{x}\bar{y}$$
+
+Ejemplo A:
+
+Supongamos que tenemos una empresa de desarrollo de software que vende dos productos: un software de gestión de proyectos y un software de gestión de recursos humanos. Queremos entender cómo se relacionan las ventas mensuales de estos dos productos.
+
+Para ello, registramos las ventas mensuales de ambos productos durante un año y calculamos la covarianza entre las ventas del software de gestión de proyectos (variable X) y las ventas del software de gestión de recursos humanos (variable Y).
+
+Interpretación:
+
+* Una covarianza positiva significa que cuando las ventas del software de gestión de proyectos aumentan en un mes, es probable que las ventas del software de gestión de recursos humanos también aumenten en ese mismo mes.
+    
+* Una covarianza negativa implicaría lo contrario: cuando las ventas del software de gestión de proyectos aumentan, las ventas del software de gestión de recursos humanos tienden a disminuir en ese mes.
+    
+* Una covarianza cercana a cero indicaría que no hay una relación clara entre las ventas de ambos productos en un mes determinado.
+
+Ejemplo B:
+
+Imaginemos una empresa de tecnología que fabrica dispositivos electrónicos, como smartphones y tabletas. La empresa desea analizar la relación entre la cantidad de publicidad en línea que realiza mensualmente (en euros gastados) y la cantidad de unidades de productos vendidos cada mes.
+
+Durante un período de varios meses, la empresa registra el gasto mensual en publicidad en línea y las ventas mensuales de sus productos. Luego, calcula la covarianza entre el gasto en publicidad en línea (variable X) y las ventas de productos (variable Y). Supongamos que la covarianza resultante es positiva, lo que indica una relación creciente entre ambas variables.
+
+Interpretación:
+
+* Una covarianza positiva sugiere que cuando la empresa invierte más en publicidad en línea en un mes determinado, las ventas de productos tienden a aumentar en ese mismo mes.
+    
+* Esto podría indicar que la publicidad en línea tiene un impacto positivo en las ventas de la empresa.
+
+## Regresión lineal y correlación.
+
+La relación estadística entre variables se refiere al estudio de cómo dos o más variables están relacionadas entre sí. Hay dos conceptos fundamentales para comprender esta relación: correlación y regresión.
+
+La correlación es una medida estadística que indica el grado de dependencia o relación entre dos variables. Se utiliza para determinar si y cómo las variables cambian juntas. Una correlación puede ser positiva, negativa o neutra (cercana a cero).
+
+Coeficiente de correlación lineal:
+
+$$r=\frac{S_xy}{S_x S_y}$$
+
+* Si $-1 <= r < 0$ la correlación lineal es negativa y las rectas de regresión (diferentes) serán decrecientes
+
+* Si $0 < r <= 1$ la correlación lineal es positiva y las rectas de regresión (diferentes) serán crecientes.
+
+* Si $r = 0$ las rectas son paralelas
+
+La regresión es un análisis estadístico que se utiliza para entender la relación entre una variable dependiente (la variable que se quiere predecir) y una o más variables independientes (las variables que se utilizan para predecir). La regresión permite determinar y obtener la estructura de dependencia que mejor exprese el tipo de relación entre las variables.
 
 
+LLamaremos regresión de $Y$ sobre $X$ a la función que explica la variable $Y$ para cada valor de $X$. La regresion de $X$ sobre $Y$ nos hablará del comportamiento de $X$ para cada valor de $Y$
+
+La recta de regresión de $Y$ sobre $X$:
+
+$$(y - \bar{y}) = \frac{S_xy}{S^2_x}(x - \bar{x})$$
+
+La recta de regresión de $X$ sobre $Y$:
+
+$$(x - \bar{x}) = \frac{S_xy}{S^2_x}(y - \bar{y})$$
+
+Se cortan en el punto $(\bar{x},\bar{y})$
+
+Las pendientes de las rectas tendrán el mismo signo que tenga la covarianza.
+
+* Si $S_xy > 0 =>$ las rectas son crecientes
+* Si $S_xy < 0 =>$ las rectas son decrecientes
+* Si $S_xy = 0 =>$ las rectas son paralelas a los ejes de coordenadas y perpendiculares entre sí.
+
+### Consideraciones sobre la regresión y la predicción
+
+La predicción de $Y$ para $X = x_0$ será:
+
+$$y_0 =  \bar{y} + \frac{S_xy}{S^2_x}(x_0 - \bar{x})$$
+
+Esta predicción será tanto más fiable cuando mejor sea la correlación lineal entre las varibles, luego una medida aproximada de la bonda de la predicción es $r$ coeficiente de coorrelación lineal-
+
+Ejemplo:
+
+Imagina una empresa de desarrollo de software que está interesada en entender la relación entre el tamaño del equipo de desarrollo y la velocidad de entrega de proyectos de software. La empresa quiere determinar si hay alguna relación entre estas dos variables y cómo pueden utilizar esa información para mejorar su proceso de desarrollo.
+
+**Correlación**:
+
+* La empresa comienza analizando la correlación entre el tamaño del equipo de desarrollo (número de desarrolladores) y la velocidad de entrega de proyectos (medida en la cantidad de funcionalidades implementadas por mes, por ejemplo). Si encuentran una correlación positiva significativa, esto indicaría que a medida que el tamaño del equipo aumenta, la velocidad de entrega tiende a aumentar también. Una correlación negativa sugeriría lo contrario, mientras que una correlación cercana a cero indicaría una relación débil o inexistente.
 
 
+**Regresión**:
 
+* Después de determinar la correlación, la empresa decide utilizar la regresión para modelar la relación de manera más detallada. Podrían ajustar un modelo de regresión lineal para predecir la velocidad de entrega de proyectos en función del tamaño del equipo de desarrollo. Esto les permitiría obtener una ecuación que relacione estas dos variables y usarla para hacer predicciones sobre la velocidad de entrega esperada para diferentes tamaños de equipo.
 
+![Regresión lineal correlación con buen ajuste](../assets/img/regresion_lineal_correlacion_buen_ajuste.png)
 
-
-
-
-
-
-
-
-
-
-
-
-
+![Regresión lineal correlación con mal ajuste](../assets/img/regresion_lineal_correlacion_mal_ajuste)
