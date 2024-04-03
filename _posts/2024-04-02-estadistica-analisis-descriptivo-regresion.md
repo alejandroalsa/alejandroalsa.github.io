@@ -1,6 +1,6 @@
 ---
 title: Análisis descriptivo de datos. Regresión
-date: 2024-01-08 8:00:00 +0800
+date: 2024-04-02 8:00:00 +0800
 categories: [Estadística, Regresión, Análisis]
 tags: [Estadística]
 math: true
@@ -398,7 +398,7 @@ La predicción de $Y$ para $X = x_0$ será:
 
 $$y_0 =  \bar{y} + \frac{S_xy}{S^2_x}(x_0 - \bar{x})$$
 
-Esta predicción será tanto más fiable cuando mejor sea la correlación lineal entre las varibles, luego una medida aproximada de la bonda de la predicción es $r$ coeficiente de coorrelación lineal-
+Esta predicción será tanto más fiable cuando mejor sea la correlación lineal entre las variables, luego una medida aproximada de la bonda de la predicción es $r$ coeficiente de correlación lineal-
 
 Ejemplo:
 
