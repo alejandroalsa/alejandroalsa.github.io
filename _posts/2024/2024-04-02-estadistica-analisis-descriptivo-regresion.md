@@ -53,7 +53,7 @@ Representa el número o fracción de veces que aparece cada posible valor de la 
 | Frec. Relativa      | 0.45   | 0.10             | 0.25       | 0.05         | 0.15      |
 | F.R. Acumulada      | 0.45   | 0.55             | 0.80       | 0.85         | 1         |
 
-**Frecuencia Absoluta (Frec. Absoluta)** Es el número todal de observacions que pertenece a una categoria específica, en este caso representa la cantida de recursos económicos en base a un todal de 100 que se destina a cada departamente.
+**Frecuencia Absoluta (Frec. Absoluta)** Es el número todal de observacions que pertenece a una categoria específica, en este caso representa la cantida de recursos económicos en base a un todal de 100 que se destina a cada departamento.
 
 **Frecuencia Absoluta Acumulada (F.A Acumulada)** Es la suma actual de las frecuencias absolutas hasta cierto punto de la distribución.
 
