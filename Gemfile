@@ -6,6 +6,7 @@ gem "jekyll-theme-chirpy", "~> 6.1"
 
 gem "csv"
 gem "logger"
+gem 'base64'
 
 group :test do
   gem "html-proofer", "~> 3.18"
