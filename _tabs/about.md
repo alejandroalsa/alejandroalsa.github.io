@@ -78,7 +78,7 @@ hide_title: true
 
 <h2 align="center">😂 Random Dev Meme</h2>
 <div align="center" id="meme-container">
-  <img id="meme-img" data-src="" alt="Random Dev Meme" style="max-width:512px; border-radius:8px;">
+  <img id="meme-img" src="https://via.placeholder.com/512x512?text=Loading..." alt="Random Dev Meme" style="max-width:512px; border-radius:8px;">
   <p id="meme-title"></p>
   <button id="new-meme" style="margin-top:10px;">🔄 Otro meme</button>
 </div>
