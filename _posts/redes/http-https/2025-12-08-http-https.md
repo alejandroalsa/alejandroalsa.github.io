@@ -1,12 +1,12 @@
 ---
 title: HTTP y HTTPS guía completa del protocolo web y su funcionamiento
-excerpt: "Aprende qué son HTTP y HTTPS, cómo funcionan, sus métodos de petición (GET, POST, PUT, DELETE), cabeceras, códigos de estado, cookies, redirecciones y tipos de alojamiento web."
+description: "Aprende qué son HTTP y HTTPS, cómo funcionan, sus métodos de petición (GET, POST, PUT, DELETE), cabeceras, códigos de estado, cookies, redirecciones y tipos de alojamiento web."
 date: 2025-12-07
 lang: es
-categories: [Redes, FTP]
-tags: [FTP]
+categories: [Redes, HTTP HTTPS]
+tags: [HTTP HTTPS]
 author: "Alejandro Alfaro Sánchez"
-----
+---
 
 HTTP (Hyper Text Transfer Protocol) es un protocolo de la capa de aplicacion que facilita a los usuarios, de una forma sencilla e intuitiva, el acceso a la información hipermedia remota de sistemas conectados a una red TCP/IP. El modelo cliente/servidor y el protocolo HTTP son la base de la WWW (World Wide Web o simplemete WEB).
 
@@ -25,7 +25,7 @@ La Web se puede ver como un conjunto de recursos distribuidos y conectados entre
 https://blog.alejandroalsa.es/redes/http.php?id=2&tema=HTTP
 
 *   **http://** Esquema o protocolo que se utiliza para acceder al recurso
-*   **blog.alejandroalsa.es** Nombre DNS donde está el recurso
+*   **alejandroalsa.es** Nombre DNS donde está el recurso
 *   **/redes/http.php** Ruta del recursos solicitado al directorio raíz del servidor web
 *   **?id=2&tema=HTTP** Parámetros y su valor enviados al servidor
 
@@ -34,7 +34,6 @@ La diferencia redide en que una URI (Uniform Resource Identifier) es una cadena 
 https://alejandroalsa.es => URL
 
 mailto:alejandro@alejandroalsa.es => URI
-
 
 ## Páginas web, sitios web y aplicaciones web
 
