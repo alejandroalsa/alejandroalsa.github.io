@@ -19,7 +19,7 @@ title: ΛLΣJΛПDЯOΛLSΛ # the main title
 tagline: Fundador & CEO de DIWES + HWH # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
-  A minimal, responsive and feature-rich Jekyll theme for technical writing.
+  Blog técnico especializado en desarrollo de software, servidores, redes, hardware y todo lo relacionado con la Ingeniería Informática.
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
@@ -116,7 +116,7 @@ comments:
     issue_term: # < url | pathname | title | ...>
   # Giscus options › https://giscus.app
   giscus:
-    repo: alejandroalsa/alejandroalsa.es # format: <gh-username>/<repo>
+    repo: alejandroalsa/alejandroalsa.github.io # format: <gh-username>/<repo>
     repo_id: R_kgDOJ8ORRA
     category: General
     category_id: DIC_kwDOJ8ORRM4Cbi1j
