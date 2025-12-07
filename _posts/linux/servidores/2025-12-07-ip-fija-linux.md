@@ -1,8 +1,11 @@
 ---
 title: IP Privada Fija en Linux
-date: 2023-07-16 12:00:00 +0800
+excerpt: "Aprende a asignar una IP privada fija en Linux de manera fácil y segura."
+date: 2025-12-07
+lang: es
 categories: [Linux, Servidores, Redes]
 tags: [ip-privada-fija]
+author: "Alejandro Alfaro Sánchez"
 ---
 
 Configurar una IP privada fija en Linux permite que tu servidor o equipo tenga siempre la misma dirección en la red local, facilitando el acceso remoto, la gestión de servicios y la asignación de reglas en routers o firewalls.
