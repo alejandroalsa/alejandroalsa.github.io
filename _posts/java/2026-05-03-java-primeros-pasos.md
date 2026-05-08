@@ -30,7 +30,7 @@ Al instalar Java tienes principalmente:
 - `java`: ejecuta programas
 - `javac`: compila código fuente
 
-## Crear un proyecto
+## Crear un programa
 
 Crea un archivo llamado HolaMundo.java con este contenido:
 
