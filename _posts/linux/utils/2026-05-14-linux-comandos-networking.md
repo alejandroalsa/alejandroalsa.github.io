@@ -1,5 +1,5 @@
 ---
-title: Comandos en Linux - Networking
+title: Comandos Linux / Networking
 description: "Los comandos de red más útiles en Linux."
 date: 2026-05-14
 lang: es
