@@ -386,7 +386,8 @@ Abortar el rebase:
 git rebase --abort
 ```
 
-> ⚠️ Nunca hagas rebase de ramas que ya están en el remoto y otras personas usan. Reescribe el historial y causa conflictos a los demás.
+> Nunca hagas rebase de ramas que ya están en el remoto y otras personas usan. Reescribe el historial y causa conflictos a los demás.
+{: .prompt-warning }
 
 ---
 
@@ -644,7 +645,8 @@ Deshacer el último commit y descartar todos los cambios:
 git reset --hard HEAD~1
 ```
 
-> ⚠️ `--hard` es destructivo. Los cambios se pierden de forma irrecuperable si no están en otro commit.
+> `--hard` es destructivo. Los cambios se pierden de forma irrecuperable si no están en otro commit.
+{: .prompt-warning }
 
 ---
 
