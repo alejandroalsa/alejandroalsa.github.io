@@ -1,9 +1,9 @@
 ---
-title: Java / Conversión de tipos y Casting
+title: Java / Básico /  Conversión de tipos y Casting
 description: "Conversión de tipos y casting en Java"
 date: 2026-05-11
 lang: es
-categories: [Programación, Java]
+categories: [Programación, Java, Java Básico]
 tags: [java, sintaxis]
 author: "Alejandro Alfaro Sánchez"
 ---

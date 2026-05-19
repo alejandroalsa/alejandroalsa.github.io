@@ -1,9 +1,9 @@
 ---
-title: Java / Operadores Lógicos
+title: Java / Básico /  Operadores Lógicos
 description: "Operadores lógicos en Java"
 date: 2026-05-12
 lang: es
-categories: [Programación, Java]
+categories: [Programación, Java, Java Básico]
 tags: [java, sintaxis]
 author: "Alejandro Alfaro Sánchez"
 ---

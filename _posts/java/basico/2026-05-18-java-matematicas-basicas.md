@@ -1,9 +1,9 @@
 ---
-title: Java / Matemáticas Básicas
+title: Java / Básico /  Matemáticas Básicas
 description: "Matemáticas básicas en Java"
 date: 2026-05-17
 lang: es
-categories: [Programación, Java]
+categories: [Programación, Java, Java Básico]
 tags: [java, matemáticas]
 author: "Alejandro Alfaro Sánchez"
 ---

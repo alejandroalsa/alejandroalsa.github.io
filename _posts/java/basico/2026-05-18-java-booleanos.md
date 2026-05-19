@@ -1,9 +1,9 @@
 ---
-title: Java / Booleanos
+title: Java / Básico /  Booleanos
 description: "Booleanos en Java"
 date: 2026-05-17
 lang: es
-categories: [Programación, Java]
+categories: [Programación, Java, Java Básico]
 tags: [java, booleanos]
 author: "Alejandro Alfaro Sánchez"
 ---

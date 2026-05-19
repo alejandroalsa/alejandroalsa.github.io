@@ -1,9 +1,9 @@
 ---
-title: Java / Sintaxis
+title: Java / Básico /  Sintaxis
 description: "Sintaxis de Java"
 date: 2026-05-08
 lang: es
-categories: [Programación, Java]
+categories: [Programación, Java, Java Básico]
 tags: [java, sintaxis]
 author: "Alejandro Alfaro Sánchez"
 ---

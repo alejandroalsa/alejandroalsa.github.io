@@ -1,9 +1,9 @@
 ---
-title: Java / Operadores Asignación
+title: Java / Básico /  Operadores Asignación
 description: "Operadores de asignación en Java"
 date: 2026-05-12
 lang: es
-categories: [Programación, Java]
+categories: [Programación, Java, Java Básico]
 tags: [java, sintaxis]
 author: "Alejandro Alfaro Sánchez"
 ---

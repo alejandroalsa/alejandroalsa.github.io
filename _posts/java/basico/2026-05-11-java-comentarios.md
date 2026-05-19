@@ -1,9 +1,9 @@
 ---
-title: Java / Comentarios
+title: Java / Básico /  Comentarios
 description: "Comentarios en Java"
 date: 2026-05-11
 lang: es
-categories: [Programación, Java]
+categories: [Programación, Java, Java Básico]
 tags: [java, sintaxis]
 author: "Alejandro Alfaro Sánchez"
 ---

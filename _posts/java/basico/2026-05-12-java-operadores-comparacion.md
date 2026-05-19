@@ -1,9 +1,9 @@
 ---
-title: Java / Operadores Comparación
+title: Java / Básico /  Operadores Comparación
 description: "Operadores comparación en Java"
 date: 2026-05-12
 lang: es
-categories: [Programación, Java]
+categories: [Programación, Java, Java Básico]
 tags: [java, sintaxis]
 author: "Alejandro Alfaro Sánchez"
 ---

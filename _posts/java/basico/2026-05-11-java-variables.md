@@ -1,9 +1,9 @@
 ---
-title: Java / Variables
+title: Java / Básico /  Variables
 description: "Variables en Java"
 date: 2026-05-11
 lang: es
-categories: [Programación, Java]
+categories: [Programación, Java, Java Básico]
 tags: [java, sintaxis]
 author: "Alejandro Alfaro Sánchez"
 ---

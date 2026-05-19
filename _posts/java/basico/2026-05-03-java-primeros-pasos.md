@@ -1,9 +1,9 @@
 ---
-title: Java / Primeros pasos
+title: Java / Básico /  Primeros pasos
 description: "Instalación y primer programa en Java"
 date: 2026-05-03
 lang: es
-categories: [Programación, Java]
+categories: [Programación, Java, Java Básico]
 tags: [java, instalacion, primeros-pasos]
 author: "Alejandro Alfaro Sánchez"
 ---
