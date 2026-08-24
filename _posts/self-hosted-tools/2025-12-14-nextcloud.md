@@ -3,8 +3,8 @@ title: Nextcloud en Ubuntu Server
 description: "Aprende a asignar una IP privada fija en Linux de manera fácil y segura."
 date: 2025-12-14
 lang: es
-categories: [Linux, Servidores, Redes]
-tags: [ip-privada-fija]
+categories: [Linux, Self-hosted Tools]
+tags: [nextcloud]
 author: "Alejandro Alfaro Sánchez"
 ---
 
