@@ -68,7 +68,7 @@ if (x >= y) { // ¿Es x mayor o igual que y?
 // Si es falso el programa no realizara nada
 ```
 
-En este ultimo caso para que se imprima el mensaje x tendría que ser exactamente igual que y o mayor que y para que la condición sea verdadera y se pueda imprimir el mensaje.
+En este ultimo caso para que se imprima el mensaje `x` tendría que ser exactamente igual que `y` o mayor que `y` para que la condición sea verdadera y se pueda imprimir el mensaje.
 
 ## else
 
@@ -126,7 +126,7 @@ En este caso concreto hemos realizado un programa que acota muy bien el rango de
 También existe una forma abreviada de `if else`, que se conoce como ternaria, ya que solo consta de 3 operandos.
 
 ```txt
-variable = (condicion) ? expresionVerdadera :  expresionFalsa;
+variable = (condicion) ? expresionVerdadera : expresionFalsa;
 ```
 
 ```java
@@ -194,5 +194,3 @@ if (!(a > b)) { // Prueba si a es no mayor que b
   System.out.println("a NO es mayor que b");
 }
 ```
-
-## Ejemplo real
