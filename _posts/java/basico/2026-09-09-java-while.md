@@ -55,3 +55,41 @@ while(i < 5){
 ```
 
 En este caso, como `i < 10` es falso desde el principio, el bloque de código no se ejecuta.
+
+## Bucle Do/While
+
+El bucle `do/while` es muy parecido al bucle [While](#bucle-while) pero tiene una diferencia importante: el bloque de código se ejecuta al menos una vez, independientemente de si la condición se cumple o no.
+
+Esto ocurre porque la condición se comprueba después de ejecutar el bloque de código.
+
+```java
+int i = 0;
+
+do{
+  System.out.println(i);
+  i++;
+} while (i < 5);
+```
+
+En este ejemplo, el código se ejecutará mientras `i` sea menor que `5`. Por tanto, se mostrarán los números del `0` al `4`.
+
+Al igual que ocurre con el bucle [while](#bucle-while), es importante modificar la variable que utilizamos en la condición para evitar crear un bucle infinito.
+
+Veamos ahora qué ocurre cuando la condición es falsa desde el principio:
+
+```java
+int i = 10;
+
+do{
+  System.out.println(i);
+  i++;
+} while (i < 5);
+```
+
+En este caso, aunque `i < 5` es falso desde el principio, el bloque de código se ejecutará una vez antes de comprobar la condición.
+
+Por tanto, se mostrará:
+
+`10`
+
+Después de ejecutar el bloque, se comprueba la condición i < 5. Como 11 < 5 es falso, el bucle termina.
