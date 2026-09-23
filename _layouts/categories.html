@@ -1,0 +1,241 @@
+---
+layout: page
+# Categorías con 3 niveles: categories[0] > categories[1] > categories[2]
+# Basado en _layouts/categories.html de jekyll-theme-chirpy
+---
+
+{% include lang.html %}
+
+{% assign HEAD_PREFIX = 'h_' %}
+{% assign LIST_PREFIX = 'l_' %}
+{% assign SUB_PREFIX = 's_' %}
+
+{% assign loc = site.data.locales[lang].categories %}
+{% assign ctg_plural = loc.category_measure.plural | default: loc.category_measure %}
+{% assign ctg_singular = loc.category_measure.singular | default: loc.category_measure %}
+{% assign post_plural = loc.post_measure.plural | default: loc.post_measure %}
+{% assign post_singular = loc.post_measure.singular | default: loc.post_measure %}
+
+<style>
+  .categories .third-level {
+    margin-top: 0.5rem;
+    padding-left: 0;
+  }
+  .categories .third-level .list-group-item {
+    border: 0;
+    padding: 0.35rem 0;
+    background: transparent;
+  }
+
+  /* Flechas: círculo con fondo al pasar el ratón (padre y subcategorías) */
+  .categories .category-trigger,
+  .categories .sub-trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 1.7rem;
+    height: 1.7rem;
+    border-radius: 50%;
+    color: #6c757d !important;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+  .categories .category-trigger:not(.disabled):hover,
+  .categories .sub-trigger:hover {
+    background-color: var(--categories-hover-bg);
+  }
+
+  .categories .sub-trigger i {
+    transition: transform 300ms ease;
+  }
+  .categories .sub-trigger.collapsed i {
+    transform: rotate(-90deg);
+  }
+  .categories .sub-trigger,
+  .categories .sub-trigger:hover,
+  .categories .sub-trigger:focus {
+    border-bottom: 0 !important;
+    color: #6c757d !important;
+  }
+</style>
+
+{% assign group_index = 0 %}
+{% assign sort_categories = site.categories | sort %}
+
+{% for category in sort_categories %}
+  {% assign category_name = category | first %}
+  {% assign posts_of_category = category | last %}
+  {% assign first_post = posts_of_category | first %}
+
+  {% if category_name == first_post.categories[0] %}
+    {% comment %} Nivel 2: subcategorías de esta categoría padre {% endcomment %}
+    {% assign sub_categories = '' | split: '' %}
+    {% for post in posts_of_category %}
+      {% assign lvl0 = post.categories[0] %}
+      {% assign lvl1 = post.categories[1] %}
+      {% if lvl0 == category_name and lvl1 %}
+        {% unless sub_categories contains lvl1 %}
+          {% assign sub_categories = sub_categories | push: lvl1 %}
+        {% endunless %}
+      {% endif %}
+    {% endfor %}
+
+    {% assign sub_categories = sub_categories | sort %}
+    {% assign sub_categories_size = sub_categories | size %}
+    {% assign top_posts_size = posts_of_category | size %}
+
+    <div class="card categories">
+      <!-- Nivel 1 -->
+      <div
+        id="{{ HEAD_PREFIX }}{{ group_index }}"
+        class="card-header d-flex justify-content-between hide-border-bottom"
+      >
+        <span class="ms-2">
+          <i class="far fa-folder{% if sub_categories_size > 0 %}-open{% endif %} fa-fw"></i>
+
+          {% capture _category_url %}/categories/{{ category_name | slugify | url_encode }}/{% endcapture %}
+          <a href="{{ _category_url | relative_url }}" class="mx-2">{{ category_name }}</a>
+
+          <span class="text-muted small font-weight-light">
+            {% if sub_categories_size > 0 %}
+              {{ sub_categories_size }}
+              {% if sub_categories_size > 1 %}{{ ctg_plural }}{% else %}{{ ctg_singular }}{% endif %},
+            {% endif %}
+            {{ top_posts_size }}
+            {% if top_posts_size > 1 %}{{ post_plural }}{% else %}{{ post_singular }}{% endif %}
+          </span>
+        </span>
+
+        {% if sub_categories_size > 0 %}
+          <a
+            href="#{{ LIST_PREFIX }}{{ group_index }}"
+            data-bs-toggle="collapse"
+            aria-expanded="true"
+            aria-label="{{ HEAD_PREFIX }}{{ group_index }}-trigger"
+            class="category-trigger hide-border-bottom"
+          >
+            <i class="fas fa-fw fa-angle-down"></i>
+          </a>
+        {% else %}
+          <span data-bs-toggle="collapse" class="category-trigger hide-border-bottom disabled">
+            <i class="fas fa-fw fa-angle-right"></i>
+          </span>
+        {% endif %}
+      </div>
+
+      <!-- Nivel 2 -->
+      {% if sub_categories_size > 0 %}
+        <div id="{{ LIST_PREFIX }}{{ group_index }}" class="collapse show" aria-expanded="true">
+          <ul class="list-group">
+            {% for sub_category in sub_categories %}
+              {% capture sub_id %}{{ SUB_PREFIX }}{{ group_index }}_{{ forloop.index }}{% endcapture %}
+
+              {% comment %} Nivel 3 y recuento de posts de esta subcategoría {% endcomment %}
+              {% assign third_categories = '' | split: '' %}
+              {% assign sub_posts_size = 0 %}
+              {% for post in posts_of_category %}
+                {% assign lvl0 = post.categories[0] %}
+                {% assign lvl1 = post.categories[1] %}
+                {% if lvl0 == category_name and lvl1 == sub_category %}
+                  {% assign sub_posts_size = sub_posts_size | plus: 1 %}
+                  {% assign lvl2 = post.categories[2] %}
+                  {% if lvl2 %}
+                    {% unless third_categories contains lvl2 %}
+                      {% assign third_categories = third_categories | push: lvl2 %}
+                    {% endunless %}
+                  {% endif %}
+                {% endif %}
+              {% endfor %}
+
+              {% assign third_categories = third_categories | sort %}
+              {% assign third_size = third_categories | size %}
+
+              <li class="list-group-item">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span>
+                    <i class="far fa-folder fa-fw sub-folder-icon"></i>
+
+                    {% capture _sub_ctg_url %}/categories/{{ sub_category | slugify | url_encode }}/{% endcapture %}
+                    <a href="{{ _sub_ctg_url | relative_url }}" class="mx-2">{{ sub_category }}</a>
+
+                    <span class="text-muted small font-weight-light">
+                      {% if third_size > 0 %}
+                        {{ third_size }}
+                        {% if third_size > 1 %}{{ ctg_plural }}{% else %}{{ ctg_singular }}{% endif %},
+                      {% endif %}
+                      {{ sub_posts_size }}
+                      {% if sub_posts_size > 1 %}{{ post_plural }}{% else %}{{ post_singular }}{% endif %}
+                    </span>
+                  </span>
+
+                  {% if third_size > 0 %}
+                    <a
+                      href="#{{ sub_id }}"
+                      data-bs-toggle="collapse"
+                      aria-expanded="false"
+                      aria-controls="{{ sub_id }}"
+                      aria-label="{{ sub_category }}"
+                      class="sub-trigger collapsed"
+                    >
+                      <i class="fas fa-fw fa-angle-down"></i>
+                    </a>
+                  {% endif %}
+                </div>
+
+                <!-- Nivel 3 (cerrado por defecto) -->
+                {% if third_size > 0 %}
+                  <ul id="{{ sub_id }}" class="list-group collapse third-level">
+                    {% for third_category in third_categories %}
+                      {% assign third_posts_size = 0 %}
+                      {% for post in posts_of_category %}
+                        {% assign lvl0 = post.categories[0] %}
+                        {% assign lvl1 = post.categories[1] %}
+                        {% assign lvl2 = post.categories[2] %}
+                        {% if lvl0 == category_name and lvl1 == sub_category and lvl2 == third_category %}
+                          {% assign third_posts_size = third_posts_size | plus: 1 %}
+                        {% endif %}
+                      {% endfor %}
+
+                      <li class="list-group-item">
+                        <i class="far fa-folder fa-fw"></i>
+
+                        {% capture _third_url %}/categories/{{ third_category | slugify | url_encode }}/{% endcapture %}
+                        <a href="{{ _third_url | relative_url }}" class="mx-2">{{ third_category }}</a>
+
+                        <span class="text-muted small font-weight-light">
+                          {{ third_posts_size }}
+                          {% if third_posts_size > 1 %}{{ post_plural }}{% else %}{{ post_singular }}{% endif %}
+                        </span>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+    </div>
+
+    {% assign group_index = group_index | plus: 1 %}
+  {% endif %}
+{% endfor %}
+
+<script>
+  document.querySelectorAll('.categories .third-level').forEach((list) => {
+    const icon = list.closest('li').querySelector('.sub-folder-icon');
+
+    list.addEventListener('show.bs.collapse', (e) => {
+      e.stopPropagation();
+      icon.classList.replace('fa-folder', 'fa-folder-open');
+    });
+    list.addEventListener('hide.bs.collapse', (e) => {
+      e.stopPropagation();
+      icon.classList.replace('fa-folder-open', 'fa-folder');
+    });
+    ['shown.bs.collapse', 'hidden.bs.collapse'].forEach((evt) =>
+      list.addEventListener(evt, (e) => e.stopPropagation())
+    );
+  });
+</script>
